@@ -50,13 +50,17 @@ const hizmetler = [
   <body>
     <header class="header">
       <div class="container header-inner">
-        <a href="#anasayfa" class="brand" aria-label="Ana sayfa">
-          <span class="brand-symbol">eö.</span>
-          <span class="brand-name">
-            <strong>Elif Özgür Önal</strong>
-            <small>KLİNİK PSİKOLOG</small>
-          </span>
-        </a>
+        
+<a href="#anasayfa" class="brand" aria-label="Elif Özgür Önal - Ana sayfa">
+  <img
+    src="/images/logo.png"
+    alt="Klinik Psikolog Elif Özgür Önal"
+    class="brand-logo"
+    width="220"
+    height="75"
+  />
+</a>
+
 
         <nav aria-label="Ana menü">
           <a href="#anasayfa">Ana Sayfa</a>
@@ -99,16 +103,24 @@ const hizmetler = [
             </div>
           </div>
 
-          <div class="hero-visual">
-            <div class="visual-ring ring-one"></div>
-            <div class="visual-ring ring-two"></div>
-            <div class="visual-ring ring-three"></div>
-            <div class="hero-monogram">eö</div>
-            <div class="visual-caption">
-              <span>ELİF ÖZGÜR ÖNAL</span>
-              <small>Klinik Psikolog</small>
-            </div>
-          </div>
+          
+<div class="hero-visual">
+  <img
+    src="/images/elif-ozgur-onal.jpg"
+    alt="Klinik Psikolog Elif Özgür Önal portre fotoğrafı"
+    class="hero-photo"
+    width="900"
+    height="1100"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <div class="visual-caption">
+    <span>ELİF ÖZGÜR ÖNAL</span>
+    <small>Klinik Psikolog</small>
+  </div>
+</div>
+
         </div>
       </section>
 
@@ -903,4 +915,69 @@ const hizmetler = [
       transition: none;
     }
   }
+
+/* Gerçek logo */
+.brand-logo {
+  display: block;
+  width: auto;
+  max-width: 220px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Profil fotoğrafı alanı */
+.hero-visual {
+  background: #dbe5dc;
+  isolation: isolate;
+}
+
+/* Elif'in fotoğrafı */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+/* Fotoğrafın alt kısmındaki koyu geçiş */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(24, 43, 34, 0.65)
+  );
+  pointer-events: none;
+}
+
+/* Fotoğraf üzerindeki isim */
+.visual-caption {
+  z-index: 2;
+  color: #ffffff;
+  border-top-color: rgba(255, 255, 255, 0.55);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobil görünüm */
+@media (max-width: 560px) {
+  .brand-logo {
+    height: 56px;
+    max-width: 190px;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .visual-caption {
+    bottom: 24px;
+    left: 22px;
+    right: 22px;
+  }
+}
+
 </style>
