@@ -1,12 +1,13 @@
 
 ---
+
 const menu = [
   { ad: "Ana Sayfa", adres: "/" },
   { ad: "Hakkımda", adres: "/hakkimda" },
   { ad: "Çalışma Alanları", adres: "/calisma-alanlari" },
-  { ad: "Blog", adres: "/blog" },
   { ad: "İletişim", adres: "/iletisim" }
 ];
+
 
 const aktifSayfa =
   Astro.url.pathname.replace(/\/$/, "") || "/";
