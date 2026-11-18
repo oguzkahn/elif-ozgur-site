@@ -1,0 +1,318 @@
+
+---
+
+import Header from "../components/Header.astro";
+
+const { frontmatter } = Astro.props;
+
+const tarih = frontmatter.date
+  ? frontmatter.date.split("-").reverse().join(".")
+  : "";
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f1" />
+
+    <title>{frontmatter.title} | Elif Özgür Önal</title>
+
+    <meta
+      name="description"
+      content={frontmatter.description}
+    />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <section class="article-heading">
+        <div class="article-container">
+          <a href="/blog" class="breadcrumb">
+            PSİKOLOJİ YAZILARI
+          </a>
+
+          <h1>{frontmatter.title}</h1>
+
+          <p class="description">
+            {frontmatter.description}
+          </p>
+
+          <div class="article-meta">
+            <span>{frontmatter.category || "Psikoloji"}</span>
+            {tarih && (
+              <time datetime={frontmatter.date}>{tarih}</time>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <article class="article-section">
+        <div class="article-container article-body">
+          <slot />
+        </div>
+      </article>
+
+      <section class="article-bottom">
+        <div class="article-container">
+          <p>
+            Bu yazı genel bilgilendirme amaçlıdır;
+            kişiye özel değerlendirme veya terapi yerine geçmez.
+          </p>
+
+          <div class="bottom-actions">
+            <a href="/blog">← Diğer yazılar</a>
+            <a href="/iletisim">İletişim →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <strong>Elif Özgür Önal</strong>
+        <span>© 2026 · Klinik Psikolog</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #f8f6f1;
+    color: #293b34;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  .container {
+    max-width: 1160px;
+    padding: 0 28px;
+    margin: auto;
+  }
+
+  .article-container {
+    max-width: 790px;
+    margin: auto;
+    padding: 0 28px;
+  }
+
+  .header {
+    background: #f8f6f1;
+    border-bottom: 1px solid #e7e8e0;
+  }
+
+  .header-inner {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .brand img {
+    width: auto;
+    height: 62px;
+    max-width: 210px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: #426d59;
+    font-size: 14px;
+  }
+
+  .back-link:hover,
+  .bottom-actions a:hover {
+    text-decoration: underline;
+  }
+
+  .article-heading {
+    background: #eaece4;
+    padding: 85px 0 65px;
+  }
+
+  .breadcrumb {
+    color: #648773;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(39px, 5vw, 65px);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 26px 0;
+  }
+
+  .description {
+    font-size: 17px;
+    color: #66776c;
+    line-height: 1.9;
+  }
+
+  .article-meta {
+    border-top: 1px solid #cbd5ca;
+    padding-top: 22px;
+    margin-top: 35px;
+    display: flex;
+    gap: 25px;
+    color: #718777;
+    font-size: 12px;
+  }
+
+  .article-section {
+    padding: 70px 0 85px;
+  }
+
+  /* Markdown yazılarının biçimlendirmesi */
+  .article-body :global(h2) {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(27px, 3vw, 36px);
+    margin: 45px 0 20px;
+    line-height: 1.3;
+  }
+
+  .article-body :global(h3) {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 34px 0 17px;
+  }
+
+  .article-body :global(p),
+  .article-body :global(li) {
+    font-size: 16px;
+    line-height: 2;
+    color: #58685e;
+  }
+
+  .article-body :global(p) {
+    margin: 0 0 23px;
+  }
+
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    padding-left: 25px;
+    margin-bottom: 28px;
+  }
+
+  .article-body :global(li) {
+    margin-bottom: 10px;
+  }
+
+  .article-body :global(a) {
+    color: #355b4b;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .article-body :global(blockquote) {
+    margin: 35px 0;
+    padding: 12px 25px;
+    border-left: 3px solid #72917e;
+    background: #eaece4;
+  }
+
+  .article-bottom {
+    padding: 35px 0 75px;
+  }
+
+  .article-bottom p {
+    font-size: 13px;
+    color: #7b887f;
+    line-height: 1.8;
+  }
+
+  .bottom-actions {
+    border-top: 1px solid #dce2d9;
+    margin-top: 35px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .bottom-actions a {
+    color: #355b4b;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  footer {
+    background: #eaece4;
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-inner strong {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+  }
+
+  .footer-inner span {
+    color: #758177;
+    font-size: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .container,
+    .article-container {
+      padding: 0 20px;
+    }
+
+    .header-inner {
+      min-height: 75px;
+    }
+
+    .brand img {
+      max-width: 175px;
+      height: 54px;
+    }
+
+    .article-heading {
+      padding: 55px 0;
+    }
+
+    .article-section {
+      padding: 45px 0 65px;
+    }
+
+    .article-body :global(p),
+    .article-body :global(li) {
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

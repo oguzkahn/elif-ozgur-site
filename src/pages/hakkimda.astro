@@ -1,5 +1,8 @@
 
 ---
+
+import Header from "../components/Header.astro";
+
 const egitimler = [
   {
     baslik: "Lisans Eğitimi",
@@ -29,19 +32,8 @@ const egitimler = [
   </head>
 
   <body>
-    <header class="header">
-      <div class="container header-inner">
-        <a href="/" class="brand">
-          <img
-            src="/images/logo.png"
-            alt="Elif Özgür Önal"
-            width="180"
-          />
-        </a>
-
-        <a href="/" class="back-link">← Ana Sayfa</a>
-      </div>
-    </header>
+   
+<Header />
 
     <main>
       <section class="page-heading">
@@ -88,7 +80,7 @@ const egitimler = [
               gerçekleştiriyorum.
             </p>
 
-            <a href="/#iletisim" class="button">
+            <a href="/iletisim" class="button">
               İletişime Geçin ↗
             </a>
           </div>

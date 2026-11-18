@@ -1,0 +1,472 @@
+
+---
+import Header from "../components/Header.astro";
+
+const telefon = "905548765453";
+const eposta = "psk.elifozgur@gmail.com";
+
+const adres =
+  "Arabacıalanı, Eski Kazım Paşa Cd No:45 D:102, 54050 Serdivan/Sakarya";
+
+const whatsapp =
+  `https://wa.me/${telefon}?text=` +
+  encodeURIComponent(
+    "Merhaba, görüşme ve randevu hakkında bilgi almak istiyorum."
+  );
+
+  const harita = "https://maps.app.goo.gl/uGqnn1TYbyq4BG8W7";
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f1" />
+    <title>İletişim | Klinik Psikolog Elif Özgür Önal</title>
+    <meta
+      name="description"
+      content="Klinik Psikolog Elif Özgür Önal iletişim bilgileri. Sakarya Serdivan'da görüşme ve randevu hakkında bilgi alın."
+    />
+  </head>
+
+  <body>
+  
+    <Header />
+
+    <main>
+      <section class="page-heading">
+        <div class="container">
+          <span class="eyebrow">BİZE ULAŞIN</span>
+          <h1>İletişim<span>.</span></h1>
+          <p>
+            Görüşme süreci, çalışma alanları ve randevu
+            hakkında bilgi almak için iletişime geçebilirsiniz.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="container">
+          <div class="section-intro">
+            <span class="eyebrow">İLETİŞİM KANALLARI</span>
+            <h2>Nasıl ulaşabilirsiniz?</h2>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <span class="card-icon">01</span>
+              <h3>WhatsApp</h3>
+              <p>
+                Görüşme ve randevu hakkında bilgi almak için
+                WhatsApp üzerinden mesaj gönderebilirsiniz.
+              </p>
+              <a
+                class="card-link"
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp'tan Yazın ↗
+              </a>
+            </article>
+
+            <article class="contact-card">
+              <span class="card-icon">02</span>
+              <h3>Telefon</h3>
+              <p>
+                Telefon üzerinden görüşme ve randevu
+                bilgisi alabilirsiniz.
+              </p>
+              <a class="card-link" href={`tel:+${telefon}`}>
+                0554 876 54 53 ↗
+              </a>
+            </article>
+
+            <article class="contact-card">
+              <span class="card-icon">03</span>
+              <h3>E-posta</h3>
+              <p>
+                Genel sorularınız ve görüşme sürecine
+                ilişkin bilgi talepleriniz için.
+              </p>
+              <a class="card-link" href={`mailto:${eposta}`}>
+                {eposta} ↗
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="location-section">
+        <div class="container location-grid">
+          <div>
+            <span class="eyebrow">KONUM</span>
+            <h2>Serdivan, Sakarya<span>.</span></h2>
+            <p>{adres}</p>
+            <a
+              href={harita}
+              class="button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Haritalar'da Aç ↗
+            </a>
+          </div>
+
+          <div class="location-art" aria-hidden="true">
+            <span>SAKARYA</span>
+            <strong>Serdivan</strong>
+            <div class="location-circle">⌖</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="disclaimer">
+        <div class="container">
+          <p>
+            Bu sayfa genel bilgilendirme ve randevu iletişimi
+            amaçlıdır. WhatsApp veya e-posta üzerinden hassas
+            sağlık bilgilerinizi paylaşmayınız.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <strong>Elif Özgür Önal</strong>
+        <span>© 2026 Klinik Psikolog</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+
+  :global(body) {
+    margin: 0;
+    background: #f8f6f1;
+    color: #293b34;
+    font-family: Arial, sans-serif;
+  }
+
+  :global(a) { color: inherit; }
+
+  .container {
+    max-width: 1160px;
+    padding: 0 28px;
+    margin: auto;
+  }
+
+  .header {
+    background: #f8f6f1;
+    border-bottom: 1px solid #e5e9e1;
+    position: relative;
+    z-index: 10;
+  }
+
+  .header-inner {
+    min-height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .logo {
+    display: block;
+    width: auto;
+    max-width: 210px;
+    height: 62px;
+    object-fit: contain;
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .desktop-nav a {
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current] {
+    color: #648a77;
+  }
+
+  .mobile-menu { display: none; }
+
+  .page-heading {
+    background: #eaece4;
+    padding: 100px 0;
+  }
+
+  .eyebrow {
+    color: #72917e;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: clamp(48px, 6vw, 76px);
+    margin: 20px 0;
+  }
+
+  h1 span, h2 span {
+    color: #86a590;
+  }
+
+  .page-heading p {
+    max-width: 620px;
+    color: #68776c;
+    line-height: 1.9;
+    font-size: 16px;
+  }
+
+  .contact-section {
+    padding: 100px 0;
+  }
+
+  .section-intro h2 {
+    font-size: clamp(34px, 4vw, 48px);
+    margin: 20px 0 45px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .contact-card {
+    background: #efeee7;
+    padding: 35px;
+    min-height: 310px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-icon {
+    color: #8ba993;
+    font-size: 13px;
+    margin-bottom: 35px;
+  }
+
+  .contact-card h3 {
+    font-size: 30px;
+    margin: 0 0 20px;
+  }
+
+  .contact-card p {
+    color: #69796e;
+    font-size: 14px;
+    line-height: 1.9;
+    flex: 1;
+  }
+
+  .card-link {
+    color: #355b4b;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+    padding-top: 22px;
+    border-top: 1px solid #cdd8cd;
+    overflow-wrap: anywhere;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .location-section {
+    background: #eaece4;
+    padding: 90px 0;
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .location-grid h2 {
+    font-size: clamp(38px, 4vw, 54px);
+    margin: 22px 0;
+  }
+
+  .location-grid p {
+    color: #64756a;
+    line-height: 1.9;
+    margin-bottom: 30px;
+    max-width: 360px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 17px 25px;
+    background: #355b4b;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .location-art {
+    min-height: 340px;
+    background: #d6e1d5;
+    border-radius: 180px 180px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-art > span {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #718d78;
+  }
+
+  .location-art strong {
+    font-family: Georgia, serif;
+    font-size: 57px;
+    font-weight: normal;
+    color: #426a59;
+    margin-top: 15px;
+  }
+
+  .location-circle {
+    border: 1px solid #9bb69f;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    color: #648a77;
+    margin-top: 20px;
+  }
+
+  .disclaimer {
+    padding: 35px 0;
+    font-size: 12px;
+    color: #809085;
+    line-height: 1.8;
+  }
+
+  footer {
+    padding: 35px 0;
+    background: #eaece4;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 12px;
+    color: #758177;
+  }
+
+  .footer-inner strong {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  @media (max-width: 850px) {
+    .desktop-nav { display: none; }
+
+    .mobile-menu { display: block; }
+
+    .mobile-menu summary {
+      cursor: pointer;
+      list-style: none;
+      color: #355b4b;
+      font-size: 14px;
+    }
+
+    .mobile-menu nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #f8f6f1;
+      display: flex;
+      flex-direction: column;
+      padding: 18px 28px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+
+    .mobile-menu nav a {
+      padding: 13px 0;
+      text-decoration: none;
+      border-bottom: 1px solid #e4e8e1;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .location-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .container { padding: 0 20px; }
+
+    .header-inner { min-height: 75px; }
+
+    .logo {
+      max-width: 175px;
+      height: 54px;
+    }
+
+    .page-heading {
+      padding: 65px 0;
+    }
+
+    .contact-section {
+      padding: 65px 0;
+    }
+
+    .contact-card {
+      min-height: 240px;
+    }
+
+    .location-section {
+      padding: 65px 0;
+    }
+
+    .location-art {
+      min-height: 290px;
+    }
+
+    .location-art strong {
+      font-size: 46px;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

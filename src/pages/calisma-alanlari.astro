@@ -1,5 +1,8 @@
 
 ---
+
+import Header from "../components/Header.astro";
+
 const alanlar = [
   {
     no: "01",
@@ -47,35 +50,7 @@ const alanlar = [
     />
   </head>
   <body>
-    <header class="header">
-      <div class="container header-inner">
-        <a href="/" class="brand" aria-label="Ana sayfa">
-          <img
-            src="/images/logo.png"
-            alt="Klinik Psikolog Elif Özgür Önal"
-            width="220"
-            height="75"
-          />
-        </a>
-
-        <nav class="desktop-nav" aria-label="Ana menü">
-          <a href="/">Ana Sayfa</a>
-          <a href="/hakkimda">Hakkımda</a>
-          <a href="/calisma-alanlari" aria-current="page">Çalışma Alanları</a>
-          <a href="/#iletisim" class="contact-link">İletişim</a>
-        </nav>
-
-        <details class="mobile-menu">
-          <summary>Menü <span aria-hidden="true">☰</span></summary>
-          <nav aria-label="Mobil menü">
-            <a href="/">Ana Sayfa</a>
-            <a href="/hakkimda">Hakkımda</a>
-            <a href="/calisma-alanlari">Çalışma Alanları</a>
-            <a href="/#iletisim">İletişim</a>
-          </nav>
-        </details>
-      </div>
-    </header>
+    <Header />
 
     <main>
       <section class="page-heading">
@@ -114,7 +89,7 @@ const alanlar = [
               bilgi almak için iletişime geçebilirsiniz.
             </p>
           </div>
-          <a href="/#iletisim" class="button">
+          <a href="/iletisim" class="button">
             İletişime Geçin ↗
           </a>
         </div>

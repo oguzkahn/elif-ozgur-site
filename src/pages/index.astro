@@ -1,5 +1,8 @@
 
 ---
+
+import Header from "../components/Header.astro";
+
 const hizmetler = [
   {
     no: "01",
@@ -49,46 +52,9 @@ const hizmetler = [
 
   <body>
    
-<header class="header">
-  <div class="container header-inner">
+<Header />
 
-    <!-- Logo -->
-    <a href="#anasayfa" class="brand" aria-label="Ana sayfa">
-      <img
-        src="/images/logo.png"
-        alt="Klinik Psikolog Elif Özgür Önal"
-        class="brand-logo"
-        width="220"
-        height="75"
-      />
-    </a>
-
-    <!-- Bilgisayar menüsü -->
-    <nav class="desktop-nav" aria-label="Ana menü">
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="/hakkimda">Hakkımda</a>
-      <a href="/calisma-alanlari">Çalışma Alanları</a>
-      <a href="#iletisim" class="nav-contact">İletişim</a>
-    </nav>
-
-    <!-- Telefon menüsü -->
-    <details class="mobile-menu">
-      <summary>
-        Menü <span aria-hidden="true">☰</span>
-      </summary>
-
-      <nav aria-label="Mobil menü">
-        <a href="#anasayfa">Ana Sayfa</a>
-        <a href="/hakkimda">Hakkımda</a>
-        <a href="/calisma-alanlari">Çalışma Alanları</a>
-        <a href="#iletisim">İletişim</a>
-      </nav>
-    </details>
-
-  </div>
-</header>
-
-    <main>
+      <main>
       <section id="anasayfa" class="hero">
         <div class="container hero-grid">
           <div class="hero-content">
@@ -106,7 +72,7 @@ const hizmetler = [
             </p>
 
             <div class="hero-actions">
-              <a href="#iletisim" class="button button-primary">
+              <a href="/iletisim" class="button button-primary">
                 İletişime Geçin <span aria-hidden="true">↗</span>
               </a>
               <a href="/hakkimda" class="button button-text">

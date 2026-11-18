@@ -1,0 +1,199 @@
+
+---
+const menu = [
+  { ad: "Ana Sayfa", adres: "/" },
+  { ad: "Hakkımda", adres: "/hakkimda" },
+  { ad: "Çalışma Alanları", adres: "/calisma-alanlari" },
+  { ad: "Blog", adres: "/blog" },
+  { ad: "İletişim", adres: "/iletisim" }
+];
+
+const aktifSayfa =
+  Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+
+    <!-- Logo -->
+    <a href="/" class="site-logo" aria-label="Ana Sayfa">
+      <img
+        src="/images/logo.png"
+        alt="Klinik Psikolog Elif Özgür Önal"
+        width="220"
+        height="75"
+      />
+    </a>
+
+    <!-- Bilgisayar menüsü -->
+    <nav class="site-desktop-nav" aria-label="Ana menü">
+      {menu.map((item) => (
+        <a
+          href={item.adres}
+          aria-current={
+            aktifSayfa === item.adres ? "page" : undefined
+          }
+        >
+          {item.ad}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Telefon menüsü -->
+    <details class="site-mobile-menu">
+      <summary>
+        Menü <span aria-hidden="true">☰</span>
+      </summary>
+
+      <nav aria-label="Mobil menü">
+        {menu.map((item) => (
+          <a
+            href={item.adres}
+            aria-current={
+              aktifSayfa === item.adres ? "page" : undefined
+            }
+          >
+            {item.ad}
+          </a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f8f6f1;
+    border-bottom: 1px solid #e8e6df;
+  }
+
+  .site-header-inner {
+    max-width: 1160px;
+    min-height: 90px;
+    margin: auto;
+    padding: 0 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .site-logo img {
+    display: block;
+    width: auto;
+    max-width: 210px;
+    height: 64px;
+    object-fit: contain;
+  }
+
+  .site-desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  .site-desktop-nav a {
+    color: #293b34;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .site-desktop-nav a:hover,
+  .site-desktop-nav a[aria-current="page"] {
+    color: #648a77;
+  }
+
+  .site-desktop-nav a:last-child {
+    border: 1px solid #426a59;
+    padding: 13px 20px;
+    border-radius: 4px;
+  }
+
+  .site-mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 850px) {
+    .site-header-inner {
+      min-height: 76px;
+      padding: 0 20px;
+    }
+
+    .site-logo img {
+      max-width: 175px;
+      height: 54px;
+    }
+
+    .site-desktop-nav {
+      display: none;
+    }
+
+    .site-mobile-menu {
+      display: block;
+    }
+
+    .site-mobile-menu summary {
+      cursor: pointer;
+      list-style: none;
+      color: #355b4b;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 0;
+    }
+
+    .site-mobile-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .site-mobile-menu summary span {
+      margin-left: 8px;
+      font-size: 19px;
+    }
+
+    .site-mobile-menu summary:focus-visible {
+      outline: 2px solid #355b4b;
+      outline-offset: 4px;
+    }
+
+    .site-mobile-menu nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+
+      display: flex;
+      flex-direction: column;
+      background: #f8f6f1;
+      padding: 16px 25px;
+      border-bottom: 1px solid #dce3d9;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.07);
+    }
+
+    .site-mobile-menu nav a {
+      color: #355b4b;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 15px 5px;
+      border-bottom: 1px solid #e5e8e1;
+    }
+
+    .site-mobile-menu nav a:last-child {
+      border-bottom: none;
+    }
+
+    .site-mobile-menu nav a[aria-current="page"] {
+      font-weight: bold;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-desktop-nav a {
+      transition: none;
+    }
+  }
+</style>
