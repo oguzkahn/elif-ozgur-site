@@ -17,6 +17,28 @@ const whatsapp =
   );
 
   const harita = "https://maps.app.goo.gl/uGqnn1TYbyq4BG8W7";
+
+
+const yerelIsletme = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.elifozgur.com/#isletme",
+  "name": "Klinik Psikolog Elif Özgür Önal",
+  "url": "https://www.elifozgur.com/",
+  "image": "https://www.elifozgur.com/images/elif-ozgur-onal.jpg",
+  "telephone": "+905548765453",
+  "email": "psk.elifozgur@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arabacıalanı, Eski Kazım Paşa Cd. No:45 D:102",
+    "addressLocality": "Serdivan",
+    "addressRegion": "Sakarya",
+    "postalCode": "54050",
+    "addressCountry": "TR"
+  },
+  "hasMap": "https://maps.app.goo.gl/uGqnn1TYbyq4BG8W7"
+};
+
 ---
 
 <!doctype html>
@@ -30,6 +52,11 @@ const whatsapp =
 <SEOHead
   title="İletişim ve Randevu | Elif Özgür Önal – Sakarya"
   description="Klinik Psikolog Elif Özgür Önal'ın Serdivan Sakarya'daki ofisine ulaşın. Telefon, WhatsApp, konum ve görüşme hakkında iletişim bilgileri."
+/>
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(yerelIsletme)}
 />
 
   </head>
