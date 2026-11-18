@@ -1,5 +1,6 @@
 
 ---
+import SEOHead from "../components/SEOHead.astro";
 
 import Header from "../components/Header.astro";
 
@@ -43,11 +44,12 @@ const alanlar = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8f6f1" />
-    <title>Çalışma Alanları | Klinik Psikolog Elif Özgür Önal</title>
-    <meta
-      name="description"
-      content="Klinik Psikolog Elif Özgür Önal'ın Sakarya Serdivan'daki psikoterapi, çocuk ve ergen terapisi ve psikolojik değerlendirme çalışma alanları."
-    />
+    
+<SEOHead
+  title="Çalışma Alanları | Klinik Psikolog Elif Özgür Önal"
+  description="Sakarya Serdivan'da bireysel terapi, çocuk ve ergen terapisi, ebeveyn danışmanlığı ve psikolojik değerlendirme çalışmaları hakkında bilgi edinin."
+/>
+
   </head>
   <body>
     <Header />
