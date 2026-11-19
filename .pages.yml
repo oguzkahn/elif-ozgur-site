@@ -287,3 +287,65 @@ content:
         type: string
         list: true
 
+
+  - name: seo_ayarlari
+    label: SEO Ayarları
+    type: file
+    path: src/data/seo.json
+    format: json
+
+    fields:
+      - name: anasayfa
+        label: Ana Sayfa
+        type: object
+        fields:
+          - name: title
+            label: Google Başlığı
+            type: string
+          - name: description
+            label: Google Açıklaması
+            type: text
+
+      - name: hakkimda
+        label: Hakkımda
+        type: object
+        fields:
+          - name: title
+            label: Google Başlığı
+            type: string
+          - name: description
+            label: Google Açıklaması
+            type: text
+
+      - name: calismaAlanlari
+        label: Çalışma Alanları
+        type: object
+        fields:
+          - name: title
+            label: Google Başlığı
+            type: string
+          - name: description
+            label: Google Açıklaması
+            type: text
+
+      - name: egitimler
+        label: Eğitimler ve Sertifikalar
+        type: object
+        fields:
+          - name: title
+            label: Google Başlığı
+            type: string
+          - name: description
+            label: Google Açıklaması
+            type: text
+
+      - name: iletisim
+        label: İletişim
+        type: object
+        fields:
+          - name: title
+            label: Google Başlığı
+            type: string
+          - name: description
+            label: Google Açıklaması
+            type: text
