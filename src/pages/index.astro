@@ -9,38 +9,29 @@ import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
 import anasayfa from "../data/anasayfa.json";
 
-const hizmetler = [
+
+const hizmetDosyalari = import.meta.glob(
+  "../data/calisma-alanlari/*.json",
   {
-    no: "01",
-    baslik: "Bireysel Terapi",
-    aciklama: "Yetişkinlerin duygusal, düşünsel ve davranışsal güçlükleri üzerine yürütülen psikoterapi çalışmaları."
-  },
-  {
-    no: "02",
-    baslik: "Çocuk ve Ergen Terapisi",
-    aciklama: "Çocukların ve ergenlerin gelişim dönemlerine özgü ihtiyaçlarına yönelik psikolojik destek."
-  },
-  {
-    no: "03",
-    baslik: "Ebeveyn Danışmanlığı",
-    aciklama: "Ebeveynlerin çocuklarıyla ilişkilerini ve gelişim süreçlerini anlamalarına yönelik danışmanlık."
-  },
-  {
-    no: "04",
-    baslik: "EMDR Terapisi",
-    aciklama: "Uygunluk değerlendirmesi doğrultusunda EMDR yaklaşımıyla yürütülen psikoterapi çalışmaları."
-  },
-  {
-    no: "05",
-    baslik: "Deneyimsel Oyun Terapisi",
-    aciklama: "Çocukların kendilerini oyun aracılığıyla ifade etmelerini merkeze alan terapi yaklaşımı."
-  },
-  {
-    no: "06",
-    baslik: "Psikolojik Değerlendirme",
-    aciklama: "CAS, Moxo ve gelişimsel değerlendirme araçlarıyla ihtiyaca yönelik çalışmalar."
+    eager: true,
+    import: "default"
   }
-];
+);
+
+const hizmetler = Object.values(hizmetDosyalari)
+  .filter((alan) =>
+    alan &&
+    alan.baslik &&
+    alan.yayinda !== false
+  )
+  .sort((a, b) =>
+    Number(a.sira ?? 999) - Number(b.sira ?? 999)
+  )
+  .map((alan, index) => ({
+    ...alan,
+    no: String(index + 1).padStart(2, "0")
+  }));
+
 ---
 
 <!doctype html>
