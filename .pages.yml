@@ -377,6 +377,16 @@ content:
         options:
           extensions: [jpg, jpeg, png, webp]
 
+          - name: ofisFotografi
+        label: Görüşme Odası Fotoğrafı
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: ofisAlt
+        label: Görüşme Odası Fotoğraf Açıklaması
+        type: string
+
       - name: hakkimdaAlt
         label: Hakkımda Fotoğraf Açıklaması
         type: string
@@ -406,12 +416,4 @@ content:
         type: string
 
 
-      - name: ofisFotografi
-        label: Görüşme Odası Fotoğrafı
-        type: image
-        options:
-          extensions: [jpg, jpeg, png, webp]
-
-      - name: ofisAlt
-        label: Görüşme Odası Fotoğraf Açıklaması
-        type: string
+      
