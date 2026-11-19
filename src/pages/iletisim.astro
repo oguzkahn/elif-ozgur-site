@@ -10,6 +10,8 @@ import seo from "../data/seo.json";
 
 import Footer from "../components/Footer.astro";
 
+import gorseller from "../data/gorseller.json";
+
 
 
 const telefon = iletisim.telefon.replace(/^\+/, "");
@@ -162,11 +164,14 @@ const yerelIsletme = {
         </a>
       </div>
 
-      <div class="location-art" aria-hidden="true">
-        <span>SAKARYA</span>
-        <strong>Serdivan</strong>
-        <div class="location-circle">⌖</div>
-      </div>
+      <div class="location-photo">
+  <img
+    src={gorseller.ofisFotografi}
+    alt={gorseller.ofisAlt}
+    loading="lazy"
+    decoding="async"
+  />
+</div>
     </div>
   </section>
 
@@ -513,4 +518,30 @@ const yerelIsletme = {
       align-items: flex-start;
     }
   }
+
+  .location-photo {
+  border-radius: 36px;
+  overflow: hidden;
+  min-height: 420px;
+  background: #dfe7dc;
+}
+
+.location-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .location-photo {
+    min-height: 300px;
+    border-radius: 24px;
+  }
+
+  .location-photo img {
+    min-height: 300px;
+  }
+}
 </style>

@@ -404,3 +404,14 @@ content:
       - name: editorEposta
         label: Site Editörü İletişim E-postası
         type: string
+
+
+      - name: ofisFotografi
+        label: Görüşme Odası Fotoğrafı
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: ofisAlt
+        label: Görüşme Odası Fotoğraf Açıklaması
+        type: string

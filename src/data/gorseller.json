@@ -1,6 +1,9 @@
+
 {
-  "anaSayfaFotografi": "/images/elif-ozgur-onal.jpg",
+  "anaSayfaFotografi": "/uploads/elif-ozgur-onal.jpg",
   "anaSayfaAlt": "Klinik Psikolog Elif Özgür Önal",
-  "hakkimdaFotografi": "/images/elif-ozgur-onal.jpg",
-  "hakkimdaAlt": "Klinik Psikolog Elif Özgür Önal'ın portresi"
+  "hakkimdaFotografi": "/uploads/elif-ozgur-onal.jpg",
+  "hakkimdaAlt": "Klinik Psikolog Elif Özgür Önal'ın portresi",
+  "ofisFotografi": "/uploads/gorusme-odasi.jpg",
+  "ofisAlt": "Serdivan Sakarya'daki görüşme odası"
 }
