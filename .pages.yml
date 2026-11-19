@@ -69,3 +69,38 @@ content:
         label: Online Terapi Açıklaması
         type: text
         required: true
+
+
+
+  - name: anasayfa
+    label: Ana Sayfa İçerikleri
+    type: file
+    path: src/data/anasayfa.json
+    format: json
+    fields:
+      - name: anaBaslik
+        label: Ana Başlık
+        type: string
+        required: true
+
+      - name: anaAciklama
+        label: Ana Açıklama
+        type: text
+
+      - name: hakkimdaBaslik
+        label: Hakkımda Başlığı
+        type: string
+
+      - name: hakkimdaAciklama
+        label: Hakkımda Açıklaması
+        type: text
+
+      - name: iletisimBaslik
+        label: İletişim Başlığı
+        type: string
+
+      - name: iletisimAciklama
+        label: İletişim Açıklaması
+        type: text
+
+        
