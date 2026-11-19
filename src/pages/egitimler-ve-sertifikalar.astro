@@ -129,12 +129,61 @@ const seminerler = egitimIcerikleri.seminerler;
           {sertifikalar.length > 0 ? (
             <div class="certificate-grid">
               {sertifikalar.map((belge) => (
-                <article class="certificate-card">
-                  <span class="small-label">EĞİTİM BELGESİ</span>
-                  <h3>{belge.ad}</h3>
-                  <p>{belge.kurum}</p>
-                  {belge.yil && <small>{belge.yil}</small>}
-                </article>
+                
+<article class="certificate-card">
+
+  {belge.gorsel && (
+    <a
+      href={belge.gorsel}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${belge.ad} görselini aç`}
+    >
+      <img
+        src={belge.gorsel}
+        alt={`${belge.ad} sertifika görseli`}
+        class="certificate-image"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  )}
+
+  <span class="small-label">SERTİFİKA</span>
+
+  <h3>{belge.ad}</h3>
+
+  {belge.kurum && (
+    <p>{belge.kurum}</p>
+  )}
+
+  {belge.yil && (
+    <small>Yıl: {belge.yil}</small>
+  )}
+
+  {belge.sure && (
+    <p class="certificate-duration">
+      Eğitim Süresi: {belge.sure}
+    </p>
+  )}
+
+  {belge.aciklama && (
+    <p>{belge.aciklama}</p>
+  )}
+
+  {belge.belge && (
+    <a
+      href={belge.belge}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="certificate-link"
+    >
+      PDF Belgesini Görüntüle ↗
+    </a>
+  )}
+
+</article>
+
               ))}
             </div>
           ) : (
@@ -463,4 +512,54 @@ const seminerler = egitimIcerikleri.seminerler;
       scroll-behavior: auto;
     }
   }
+
+
+.certificate-image {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  background: #eeeee9;
+  border-radius: 4px;
+  margin-bottom: 26px;
+  transition: opacity 0.2s ease;
+}
+
+.certificate-image:hover {
+  opacity: 0.85;
+}
+
+.certificate-duration {
+  font-size: 13px;
+  color: #718075;
+}
+
+.certificate-link {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 17px;
+  border: 1px solid #91ab98;
+  border-radius: 4px;
+  color: #355b4b;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.certificate-link:hover {
+  background: #e7eee7;
+}
+
+@media (max-width: 700px) {
+  .certificate-image {
+    height: 210px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certificate-image {
+    transition: none;
+  }
+}
+
 </style>
