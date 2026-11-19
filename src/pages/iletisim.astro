@@ -164,14 +164,25 @@ const yerelIsletme = {
         </a>
       </div>
 
-      <div class="location-photo">
+      
+<div class="location-photo">
   <img
+    class="photo-background"
+    src={gorseller.ofisFotografi}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+  />
+
+  <img
+    class="photo-main"
     src={gorseller.ofisFotografi}
     alt={gorseller.ofisAlt}
     loading="lazy"
     decoding="async"
   />
 </div>
+
     </div>
   </section>
 
@@ -522,25 +533,14 @@ const yerelIsletme = {
   
 /* GÖRÜŞME ODASI FOTOĞRAFI */
 
-.location-photo {
-  width: 100%;
-  max-width: 520px;
-  height: 340px;
-  min-width: 0;
-
-  border-radius: 190px 190px 6px 6px;
-  overflow: hidden;
-
-  background: #dce6da;
-}
-
-.location-photo img {
+.location-photo .photo-main {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-  object-position: center center;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* MOBİL GÖRÜNÜM */
@@ -548,7 +548,7 @@ const yerelIsletme = {
 @media (max-width: 700px) {
   .location-photo {
     max-width: 100%;
-    height: 290px;
+    height: 300px;
     border-radius: 130px 130px 6px 6px;
   }
 }
