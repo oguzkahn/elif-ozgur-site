@@ -6,38 +6,25 @@ import Header from "../components/Header.astro";
 
 import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
-const alanlar = [
+
+const alanDosyalari = import.meta.glob(
+  "../data/calisma-alanlari/*.json",
   {
-    no: "01",
-    baslik: "Bireysel Terapi",
-    aciklama: "Yetişkinlerin duygusal, düşünsel ve davranışsal güçlüklerini ele almaya yönelik psikoterapi görüşmeleri."
-  },
-  {
-    no: "02",
-    baslik: "Çocuk ve Ergen Terapisi",
-    aciklama: "Çocukluk ve ergenlik dönemlerine özgü duygusal, sosyal ve gelişimsel ihtiyaçlara yönelik çalışmalar."
-  },
-  {
-    no: "03",
-    baslik: "Ebeveyn Danışmanlığı",
-    aciklama: "Ebeveynlerin çocuklarının gelişim süreçlerini anlamalarına ve aile içi iletişimi değerlendirmelerine yönelik görüşmeler."
-  },
-  {
-    no: "04",
-    baslik: "EMDR Terapisi",
-    aciklama: "Danışanın ihtiyaçları ve klinik değerlendirme doğrultusunda EMDR yaklaşımının kullanıldığı psikoterapi çalışmaları."
-  },
-  {
-    no: "05",
-    baslik: "Deneyimsel Oyun Terapisi",
-    aciklama: "Çocukların oyun aracılığıyla duygu ve deneyimlerini ifade etmelerine odaklanan terapi yaklaşımı."
-  },
-  {
-    no: "06",
-    baslik: "Psikolojik Değerlendirme",
-    aciklama: "İhtiyaca ve uygulama yetkinliğine göre seçilen psikolojik ve gelişimsel değerlendirme araçları."
+    eager: true,
+    import: "default"
   }
-];
+);
+
+const alanlar = Object.values(alanDosyalari)
+  .filter((alan) =>
+    alan &&
+    alan.baslik &&
+    alan.yayinda !== false
+  )
+  .sort((a, b) =>
+    Number(a.sira ?? 999) - Number(b.sira ?? 999)
+  );
+
 ---
 
 <!doctype html>
@@ -72,14 +59,18 @@ const alanlar = [
       <section class="services">
         <div class="container">
           <div class="service-grid">
-            {alanlar.map((alan) => (
-              <article class="service-card">
-                <span class="number">{alan.no}</span>
-                <h2>{alan.baslik}</h2>
-                <p>{alan.aciklama}</p>
-                <span class="line"></span>
-              </article>
-            ))}
+            
+{alanlar.map((alan, index) => (
+  <article class="service-card">
+    <span class="number">
+      {String(index + 1).padStart(2, "0")}
+    </span>
+    <h2>{alan.baslik}</h2>
+    <p>{alan.aciklama}</p>
+    <span class="line"></span>
+  </article>
+))}
+
           </div>
         </div>
       </section>
