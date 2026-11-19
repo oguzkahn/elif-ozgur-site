@@ -1,0 +1,48 @@
+
+media:
+  input: public/uploads
+  output: /uploads
+  rename: safe
+
+content:
+  - name: sertifikalar
+    label: Sertifikalar
+    type: collection
+    path: src/data/sertifikalar
+    format: json
+    filename: "{primary}.json"
+    fields:
+      - name: ad
+        label: Sertifika Adı
+        type: string
+        required: true
+
+      - name: kurum
+        label: Eğitimi Veren Kurum
+        type: string
+
+      - name: yil
+        label: Eğitim Yılı
+        type: string
+
+      - name: sure
+        label: Eğitim Süresi
+        type: string
+
+      - name: aciklama
+        label: Açıklama
+        type: text
+
+      - name: gorsel
+        label: Sertifika Görseli
+        type: image
+
+      - name: belge
+        label: PDF Belgesi
+        type: file
+        options:
+          categories: [document]
+
+    view:
+      primary: ad
+      fields: [ad, kurum, yil]
