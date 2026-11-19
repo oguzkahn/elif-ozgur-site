@@ -13,6 +13,9 @@ import iletisimBilgileri from "../data/iletisim.json";
 
 import seo from "../data/seo.json";
 
+import gorseller from "../data/gorseller.json";
+
+
 
 
 const hizmetDosyalari = import.meta.glob(
@@ -94,15 +97,14 @@ const hizmetler = Object.values(hizmetDosyalari)
 
           
 <div class="hero-visual">
-  <img
-    src="/images/elif-ozgur-onal.jpg"
-    alt="Klinik Psikolog Elif Özgür Önal portre fotoğrafı"
-    class="hero-photo"
-    width="900"
-    height="1100"
-    loading="eager"
-    fetchpriority="high"
-  />
+  
+<img
+  src={gorseller.anaSayfaFotografi}
+  alt={gorseller.anaSayfaAlt}
+  loading="eager"
+  decoding="async"
+/>
+
 
   <div class="visual-caption">
     <span>ELİF ÖZGÜR ÖNAL</span>

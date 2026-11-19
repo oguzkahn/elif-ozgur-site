@@ -6,6 +6,8 @@ import Header from "../components/Header.astro";
 
 import hakkimda from "../data/hakkimda.json";
 
+import gorseller from "../data/gorseller.json";
+
 
 import seo from "../data/seo.json";
 
@@ -62,12 +64,14 @@ const egitimler = [
     <div class="container about-grid">
 
       <div class="portrait">
-        <img
-          src="/images/elif-ozgur-onal.jpg"
-          alt="Klinik Psikolog Elif Özgür Önal'ın portresi"
-          loading="lazy"
-          decoding="async"
-        />
+        
+<img
+  src={gorseller.hakkimdaFotografi}
+  alt={gorseller.hakkimdaAlt}
+  loading="lazy"
+  decoding="async"
+/>
+
       </div>
 
       <div class="about-text">
