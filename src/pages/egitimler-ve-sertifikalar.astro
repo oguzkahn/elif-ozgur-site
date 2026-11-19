@@ -2,8 +2,8 @@
 ---
 import Header from "../components/Header.astro";
 import SEOHead from "../components/SEOHead.astro";
-
 import seo from "../data/seo.json";
+import Footer from "../components/Footer.astro";
 
 
 
@@ -42,7 +42,7 @@ const seminerler = egitimIcerikleri.seminerler;
       <section class="hero">
         <div class="container">
           <span class="eyebrow">MESLEKİ GELİŞİM</span>
-          <h1>Eğitimler ve <em>Sertifikalar.</em></h1>
+          <h1>Eğitimler ve <em>Sertifikalar</em></h1>
           <p>
             Akademik eğitimim, psikoterapi yaklaşımlarına
             ilişkin aldığım eğitimler ve mesleki gelişim
@@ -63,7 +63,7 @@ const seminerler = egitimIcerikleri.seminerler;
       <section class="section" id="akademik">
         <div class="container">
           <span class="eyebrow">01 / AKADEMİK GEÇMİŞ</span>
-          <h2>Akademik Eğitim<span class="dot">.</span></h2>
+          <h2>Akademik Eğitim</h2>
 
           <div class="academic-grid">
             {akademikEgitimler.map((egitim) => (
@@ -80,7 +80,7 @@ const seminerler = egitimIcerikleri.seminerler;
       <section class="section muted" id="mesleki">
         <div class="container">
           <span class="eyebrow">02 / MESLEKİ GELİŞİM</span>
-          <h2>Mesleki Eğitimler<span class="dot">.</span></h2>
+          <h2>Mesleki Eğitimler</h2>
           <p class="section-description">
             Psikoterapi ve psikolojik değerlendirme
             alanlarında alınan temel mesleki eğitimler.
@@ -103,7 +103,7 @@ const seminerler = egitimIcerikleri.seminerler;
       <section class="section" id="seminerler">
         <div class="container">
           <span class="eyebrow">03 / SÜREKLİ GELİŞİM</span>
-          <h2>Eğitim ve Seminerler<span class="dot">.</span></h2>
+          <h2>Eğitim ve Seminerler</h2>
           <p class="section-description">
             Mesleki bilgi ve becerilerin geliştirilmesine
             yönelik diğer eğitim, atölye ve seminerler.
@@ -127,7 +127,7 @@ const seminerler = egitimIcerikleri.seminerler;
       <section class="section muted" id="sertifikalar">
         <div class="container">
           <span class="eyebrow">04 / BELGELER</span>
-          <h2>Sertifikalar<span class="dot">.</span></h2>
+          <h2>Sertifikalar</h2>
           <p class="section-description">
             Mesleki eğitimlere ilişkin sertifika ve belgeler.
           </p>
@@ -219,12 +219,7 @@ const seminerler = egitimIcerikleri.seminerler;
       </section>
     </main>
 
-    <footer>
-      <div class="container footer-inner">
-        <strong>Elif Özgür Önal</strong>
-        <span>© 2026 · Klinik Psikolog</span>
-      </div>
-    </footer>
+   <Footer />
   </body>
 </html>
 

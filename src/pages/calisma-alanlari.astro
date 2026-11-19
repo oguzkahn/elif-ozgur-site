@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 
 import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
+import Footer from "../components/Footer.astro";
 
 import seo from "../data/seo.json";
 
@@ -53,7 +54,7 @@ const alanlar = Object.values(alanDosyalari)
       <section class="page-heading">
         <div class="container">
           <span class="eyebrow">PSİKOLOJİK DESTEK</span>
-          <h1>Çalışma Alanları<span>.</span></h1>
+          <h1>Çalışma Alanları</h1>
           <p>
             Her bireyin yaşam öyküsü ve ihtiyaçları farklıdır.
             Psikolojik destek süreci bu ihtiyaçlar doğrultusunda ele alınır.
@@ -97,12 +98,7 @@ const alanlar = Object.values(alanDosyalari)
       </section>
     </main>
 
-    <footer>
-      <div class="container footer-inner">
-        <span>Elif Özgür Önal · Klinik Psikolog</span>
-        <span>© 2026 Tüm hakları saklıdır.</span>
-      </div>
-    </footer>
+   <Footer />
   </body>
 </html>
 

@@ -8,6 +8,8 @@ import hakkimda from "../data/hakkimda.json";
 
 import gorseller from "../data/gorseller.json";
 
+import Footer from "../components/Footer.astro";
+
 
 import seo from "../data/seo.json";
 
@@ -53,7 +55,7 @@ const egitimler = [
       <span class="eyebrow">BENİ TANIYIN</span>
 
       <h1>
-        {hakkimda.sayfaBasligi}<span>.</span>
+        {hakkimda.sayfaBasligi}
       </h1>
 
       <p>{hakkimda.sayfaAciklamasi}</p>
@@ -100,7 +102,7 @@ const egitimler = [
       <span class="eyebrow">AKADEMİK GEÇMİŞ</span>
 
       <h2>
-        {hakkimda.egitimBasligi}<span>.</span>
+        {hakkimda.egitimBasligi}
       </h2>
 
       <div class="education-grid">
@@ -122,11 +124,7 @@ const egitimler = [
 </main>
 
 
-    <footer>
-      <div class="container">
-        <p>© 2026 Elif Özgür Önal. Tüm hakları saklıdır.</p>
-      </div>
-    </footer>
+   <Footer />
   </body>
 </html>
 

@@ -15,6 +15,8 @@ import seo from "../data/seo.json";
 
 import gorseller from "../data/gorseller.json";
 
+import Footer from "../components/Footer.astro";
+
 
 
 
@@ -133,7 +135,7 @@ const hizmetler = Object.values(hizmetDosyalari)
         <div class="container about-grid">
           <div>
             <span class="eyebrow">BENİ TANIYIN</span>
-            <h2>Hakkımda<span class="dot">.</span></h2>
+            <h2>Hakkımda</h2>
             <div class="short-rule"></div>
           </div>
 
@@ -172,7 +174,7 @@ const hizmetler = Object.values(hizmetDosyalari)
           <div class="section-heading">
             <div>
               <span class="eyebrow">UZMANLIK VE ÇALIŞMALAR</span>
-              <h2>Çalışma Alanları<span class="dot">.</span></h2>
+              <h2>Çalışma Alanları></h2>
             </div>
             <p>
               Farklı yaş gruplarına ve ihtiyaçlara yönelik
@@ -220,7 +222,7 @@ const hizmetler = Object.values(hizmetDosyalari)
     <span class="eyebrow">BİZE ULAŞIN</span>
 
     <h2>
-      {anasayfa.iletisimBaslik}<span class="dot">.</span>
+      {anasayfa.iletisimBaslik}
     </h2>
 
     <p class="contact-description">
@@ -297,15 +299,7 @@ const hizmetler = Object.values(hizmetDosyalari)
 
     </main>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div>
-          <strong>Elif Özgür Önal</strong>
-          <span>Klinik Psikolog · Sakarya</span>
-        </div>
-        <p>© 2026 Elif Özgür Önal. Tüm hakları saklıdır.</p>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
 

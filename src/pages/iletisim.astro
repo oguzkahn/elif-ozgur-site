@@ -8,6 +8,8 @@ import iletisim from "../data/iletisim.json";
 
 import seo from "../data/seo.json";
 
+import Footer from "../components/Footer.astro";
+
 
 
 const telefon = iletisim.telefon.replace(/^\+/, "");
@@ -68,7 +70,7 @@ const yerelIsletme = {
       <span class="eyebrow">BİZE ULAŞIN</span>
 
       <h1>
-        {iletisim.sayfaBasligi}<span>.</span>
+        {iletisim.sayfaBasligi}
       </h1>
 
       <p>{iletisim.sayfaAciklamasi}</p>
@@ -146,7 +148,7 @@ const yerelIsletme = {
       <div>
         <span class="eyebrow">KONUM</span>
 
-        <h2>Serdivan, Sakarya<span>.</span></h2>
+        <h2>Serdivan, Sakarya</h2>
 
         <p>{adres}</p>
 
@@ -180,12 +182,7 @@ const yerelIsletme = {
 </main>
 
 
-    <footer>
-      <div class="container footer-inner">
-        <strong>Elif Özgür Önal</strong>
-        <span>© 2026 Klinik Psikolog</span>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
 

@@ -1,0 +1,134 @@
+
+---
+import bilgiler from "../data/site-bilgileri.json";
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Elif Özgür Önal</h2>
+        <p>Klinik Psikolog · Serdivan, Sakarya</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Sosyal medya ve profiller">
+        <a
+          href={bilgiler.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram ↗
+        </a>
+
+        <a
+          href={bilgiler.doktorsitesi}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DoktorSitesi ↗
+        </a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © {new Date().getFullYear()} Elif Özgür Önal
+      </p>
+
+      <p>
+        Son içerik güncellemesi:
+        <time>{bilgiler.sonGuncelleme}</time>
+      </p>
+
+      <p>
+        Site editörü iletişim:
+        <a href={`mailto:${bilgiler.editorEposta}`}>
+          {bilgiler.editorEposta}
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #eaece4;
+    color: #293b34;
+    padding: 52px 0 28px;
+  }
+
+  .footer-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #d2dccf;
+  }
+
+  .footer-brand h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    margin: 0 0 12px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: #718075;
+    margin: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a,
+  .footer-bottom a {
+    color: #355b4b;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover,
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 24px;
+    padding-top: 24px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #718075;
+  }
+
+  @media (max-width: 700px) {
+    .footer-container {
+      padding: 0 20px;
+    }
+
+    .footer-top {
+      flex-direction: column;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+  }
+</style>

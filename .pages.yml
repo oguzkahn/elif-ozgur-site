@@ -380,3 +380,27 @@ content:
       - name: hakkimdaAlt
         label: Hakkımda Fotoğraf Açıklaması
         type: string
+
+
+  - name: site_bilgileri
+    label: Site Alt Bilgileri
+    type: file
+    path: src/data/site-bilgileri.json
+    format: json
+
+    fields:
+      - name: instagram
+        label: Instagram Bağlantısı
+        type: string
+
+      - name: doktorsitesi
+        label: DoktorSitesi Bağlantısı
+        type: string
+
+      - name: sonGuncelleme
+        label: Son İçerik Güncelleme Tarihi
+        type: string
+
+      - name: editorEposta
+        label: Site Editörü İletişim E-postası
+        type: string
