@@ -242,6 +242,29 @@ content:
       delete: false
 
     fields:
+
+      - name: akademikEgitimler
+        label: Akademik Eğitimler
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{baslik}"
+        fields:
+          - name: baslik
+            label: Eğitim Derecesi
+            type: string
+            required: true
+
+          - name: kurum
+            label: Üniversite
+            type: string
+            required: true
+
+          - name: aciklama
+            label: Açıklama
+            type: text
+
       - name: meslekiEgitimler
         label: Mesleki Eğitimler
         type: object
