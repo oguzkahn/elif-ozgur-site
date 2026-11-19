@@ -1,19 +1,15 @@
 {
-
-"akademikEgitimler": [
-  {
-    "baslik": "Psikoloji – Lisans",
-    "kurum": "Uludağ Üniversitesi",
-    "aciklama": "Onur öğrencisi olarak mezuniyet"
-  },
-  {
-    "baslik": "Klinik Psikoloji – Yüksek Lisans",
-    "kurum": "Üsküdar Üniversitesi",
-    "aciklama": "Klinik Psikoloji alanında yüksek lisans"
-  }
-],
-
-
+  "akademikEgitimler": [
+    {
+      "baslik": "Psikoloji – Lisans",
+      "kurum": "Uludağ Üniversitesi"
+    },
+    {
+      "baslik": "Klinik Psikoloji – Yüksek Lisans",
+      "kurum": "Üsküdar Üniversitesi",
+      "aciklama": "Klinik Psikoloji alanında yüksek lisans"
+    }
+  ],
   "meslekiEgitimler": [
     {
       "ad": "Deneyimsel Oyun Terapisi® Eğitimi",
