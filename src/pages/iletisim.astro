@@ -4,19 +4,16 @@ import SEOHead from "../components/SEOHead.astro";
 
 import Header from "../components/Header.astro";
 
-const telefon = "905548765453";
-const eposta = "psk.elifozgur@gmail.com";
+import iletisim from "../data/iletisim.json";
 
-const adres =
-  "Arabacıalanı, Eski Kazım Paşa Cd No:45 D:102, 54050 Serdivan/Sakarya";
 
-const whatsapp =
-  `https://wa.me/${telefon}?text=` +
-  encodeURIComponent(
-    "Merhaba, görüşme ve randevu hakkında bilgi almak istiyorum."
-  );
 
-  const harita = "https://maps.app.goo.gl/uGqnn1TYbyq4BG8W7";
+const telefon = iletisim.telefon.replace(/^\+/, "");
+const whatsapp = `https://wa.me/${iletisim.whatsapp.replace(/\D/g, "")}`;
+const eposta = iletisim.email;
+const adres = iletisim.adres;
+const harita = iletisim.haritaLinki;
+
 
 
 const yerelIsletme = {
@@ -26,18 +23,12 @@ const yerelIsletme = {
   "name": "Klinik Psikolog Elif Özgür Önal",
   "url": "https://www.elifozgur.com/",
   "image": "https://www.elifozgur.com/images/elif-ozgur-onal.jpg",
-  "telephone": "+905548765453",
-  "email": "psk.elifozgur@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Arabacıalanı, Eski Kazım Paşa Cd. No:45 D:102",
-    "addressLocality": "Serdivan",
-    "addressRegion": "Sakarya",
-    "postalCode": "54050",
-    "addressCountry": "TR"
-  },
-  "hasMap": "https://maps.app.goo.gl/uGqnn1TYbyq4BG8W7"
-};
+  
+"telephone": iletisim.telefon,
+"email": iletisim.email,
+"address": iletisim.adres,
+"hasMap": iletisim.haritaLinki
+ };
 
 ---
 
@@ -66,109 +57,124 @@ const yerelIsletme = {
   
     <Header />
 
-    <main>
-      <section class="page-heading">
-        <div class="container">
-          <span class="eyebrow">BİZE ULAŞIN</span>
-          <h1>İletişim<span>.</span></h1>
+    
+<main>
+  <section class="page-heading">
+    <div class="container">
+      <span class="eyebrow">BİZE ULAŞIN</span>
+
+      <h1>
+        {iletisim.sayfaBasligi}<span>.</span>
+      </h1>
+
+      <p>{iletisim.sayfaAciklamasi}</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">İLETİŞİM KANALLARI</span>
+        <h2>Nasıl ulaşabilirsiniz?</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <article class="contact-card">
+          <span class="card-icon">01</span>
+          <h3>WhatsApp</h3>
+
           <p>
-            
-<p>
-  Yüz yüze veya online terapi görüşmeleri,
-  çalışma alanları ve randevu süreci hakkında
-  bilgi almak için iletişime geçebilirsiniz.
-</p>
-
+            Görüşme ve randevu hakkında bilgi almak için
+            WhatsApp üzerinden mesaj gönderebilirsiniz.
           </p>
-        </div>
-      </section>
 
-      <section class="contact-section">
-        <div class="container">
-          <div class="section-intro">
-            <span class="eyebrow">İLETİŞİM KANALLARI</span>
-            <h2>Nasıl ulaşabilirsiniz?</h2>
-          </div>
+          <a
+            class="card-link"
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp'tan Yazın ↗
+          </a>
+        </article>
 
-          <div class="contact-grid">
-            <article class="contact-card">
-              <span class="card-icon">01</span>
-              <h3>WhatsApp</h3>
-              <p>
-                Görüşme ve randevu hakkında bilgi almak için
-                WhatsApp üzerinden mesaj gönderebilirsiniz.
-              </p>
-              <a
-                class="card-link"
-                href={whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp'tan Yazın ↗
-              </a>
-            </article>
+        <article class="contact-card">
+          <span class="card-icon">02</span>
+          <h3>Telefon</h3>
 
-            <article class="contact-card">
-              <span class="card-icon">02</span>
-              <h3>Telefon</h3>
-              <p>
-                Telefon üzerinden görüşme ve randevu
-                bilgisi alabilirsiniz.
-              </p>
-              <a class="card-link" href={`tel:+${telefon}`}>
-                0554 876 54 53 ↗
-              </a>
-            </article>
-
-            <article class="contact-card">
-              <span class="card-icon">03</span>
-              <h3>E-posta</h3>
-              <p>
-                Genel sorularınız ve görüşme sürecine
-                ilişkin bilgi talepleriniz için.
-              </p>
-              <a class="card-link" href={`mailto:${eposta}`}>
-                {eposta} ↗
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="location-section">
-        <div class="container location-grid">
-          <div>
-            <span class="eyebrow">KONUM</span>
-            <h2>Serdivan, Sakarya<span>.</span></h2>
-            <p>{adres}</p>
-            <a
-              href={harita}
-              class="button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Haritalar'da Aç ↗
-            </a>
-          </div>
-
-          <div class="location-art" aria-hidden="true">
-            <span>SAKARYA</span>
-            <strong>Serdivan</strong>
-            <div class="location-circle">⌖</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="disclaimer">
-        <div class="container">
           <p>
-            Bu sayfa genel bilgilendirme ve randevu iletişimi
-            amaçlıdır. WhatsApp veya e-posta üzerinden hassas
-            sağlık bilgilerinizi paylaşmayınız.
+            Telefon üzerinden görüşme ve randevu
+            bilgisi alabilirsiniz.
           </p>
-        </div>
-      </section>
-    </main>
+
+          <a
+            class="card-link"
+            href={`tel:+${telefon}`}
+          >
+            {iletisim.telefonGorunen} ↗
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <span class="card-icon">03</span>
+          <h3>E-posta</h3>
+
+          <p>
+            Genel sorularınız ve görüşme sürecine
+            ilişkin bilgi talepleriniz için.
+          </p>
+
+          <a
+            class="card-link"
+            href={`mailto:${eposta}`}
+          >
+            {eposta} ↗
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="location-section">
+    <div class="container location-grid">
+      <div>
+        <span class="eyebrow">KONUM</span>
+
+        <h2>Serdivan, Sakarya<span>.</span></h2>
+
+        <p>{adres}</p>
+
+        <a
+          href={harita}
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Haritalar'da Aç ↗
+        </a>
+      </div>
+
+      <div class="location-art" aria-hidden="true">
+        <span>SAKARYA</span>
+        <strong>Serdivan</strong>
+        <div class="location-circle">⌖</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <div class="container">
+      <p>
+        Bu sayfa genel bilgilendirme ve randevu iletişimi
+        amaçlıdır. WhatsApp veya e-posta üzerinden hassas
+        sağlık bilgilerinizi paylaşmayınız.
+      </p>
+    </div>
+  </section>
+</main>
+
 
     <footer>
       <div class="container footer-inner">
