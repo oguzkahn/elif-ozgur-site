@@ -25,21 +25,46 @@ const egitimler = [
     bolum: "Klinik Psikoloji"
   }
 ];
+
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.elifozgur.com/#elif-ozgur-onal",
+  "name": "Elif Özgür Önal",
+  "givenName": "Elif",
+  "familyName": "Özgür Önal",
+  "jobTitle": "Klinik Psikolog",
+  "url": "https://www.elifozgur.com/hakkimda/",
+  "image": "https://www.elifozgur.com/uploads/elif-ozgur-onal.jpg",
+  "description": "Sakarya Serdivan'da çocuk, ergen ve yetişkinlerle çalışan Klinik Psikolog Elif Özgür Önal.",
+  "sameAs": [
+    "https://www.instagram.com/psikolog.elifozgur/",
+    "https://www.doktorsitesi.com/klinik-psikolog-elif-ozgur-onal/psikoloji-klinik-psikolog/sakarya"
+  ]
+};
+
 ---
 
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-<SEOHead
-  title={seo.hakkimda.title}
-  description={seo.hakkimda.description}
-/>
+  <SEOHead
+    title={seo.hakkimda.title}
+    description={seo.hakkimda.description}
+  />
 
-  </head>
+  <!-- Klinik Psikolog Elif Özgür Önal - Person Schema -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(personSchema)}
+  />
+</head>
+
 
   <body>
    
