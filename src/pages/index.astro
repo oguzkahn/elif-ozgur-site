@@ -9,6 +9,9 @@ import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
 import anasayfa from "../data/anasayfa.json";
 
+import iletisimBilgileri from "../data/iletisim.json";
+
+
 
 const hizmetDosyalari = import.meta.glob(
   "../data/calisma-alanlari/*.json",
@@ -191,46 +194,99 @@ const hizmetler = Object.values(hizmetDosyalari)
 <p>{anasayfa.iletisimAciklama}</p>
 
           </div>
-          <a href="tel:+905548765453" class="button button-light">
-            Telefonla Ara <span aria-hidden="true">↗</span>
-          </a>
+          
+<a
+  href={`tel:${iletisimBilgileri.telefon}`}
+  class="button button-light"
+>
+  Telefonla Ara <span aria-hidden="true">↗</span>
+</a>
+
         </div>
       </section>
 
       
+
 <section id="iletisim" class="section contact">
   <div class="container">
     <span class="eyebrow">BİZE ULAŞIN</span>
-    <h2>{anasayfa.iletisimBaslik}<span class="dot">.</span></h2>
 
+    <h2>
+      {anasayfa.iletisimBaslik}<span class="dot">.</span>
+    </h2>
 
-          <div class="contact-grid">
-            <div class="contact-item">
-              <span class="contact-label">TELEFON</span>
-              <a href="tel:+905548765453">0554 876 54 53</a>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">E-POSTA</span>
-              <a href="mailto:psk.elifozgur@gmail.com">
-                psk.elifozgur@gmail.com
-              </a>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">ADRES</span>
-              <p>
-                Arabacıalanı, Eski Kazım Paşa Cd.
-                No:45 D:102, Serdivan / Sakarya
-              </p>
-            </div>
-          </div>
+    <p class="contact-description">
+      {anasayfa.iletisimAciklama}
+    </p>
 
-          <p class="contact-disclaimer">
-            Bu web sitesi bilgilendirme ve iletişim amaçlıdır.
-            Acil psikiyatrik veya tıbbi durumlarda acil sağlık
-            hizmetlerine başvurunuz.
-          </p>
+    <div class="contact-methods">
+
+      <!-- TELEFON -->
+      <a
+        class="contact-method"
+        href={`tel:${iletisimBilgileri.telefon}`}
+      >
+        <span class="contact-number">01 / TELEFON</span>
+
+        <h3>Telefonla İletişim</h3>
+
+        <p>
+          Görüşme ve randevu hakkında bilgi almak için
+          telefonla iletişime geçebilirsiniz.
+        </p>
+
+        <div class="contact-method-footer">
+          <strong>{iletisimBilgileri.telefonGorunen}</strong>
+          <span aria-hidden="true">↗</span>
         </div>
-      </section>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a
+        class="contact-method"
+        href={`https://wa.me/${iletisimBilgileri.whatsapp.replace(/\D/g, "")}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="contact-number">02 / WHATSAPP</span>
+
+        <h3>WhatsApp</h3>
+
+        <p>
+          Yüz yüze veya online terapi görüşmeleri
+          hakkında bilgi almak için mesaj gönderebilirsiniz.
+        </p>
+
+        <div class="contact-method-footer">
+          <strong>WhatsApp'tan Yazın</strong>
+          <span aria-hidden="true">↗</span>
+        </div>
+      </a>
+
+      <!-- E-POSTA -->
+      <a
+        class="contact-method"
+        href={`mailto:${iletisimBilgileri.email}`}
+      >
+        <span class="contact-number">03 / E-POSTA</span>
+
+        <h3>E-posta</h3>
+
+        <p>
+          Genel sorularınız ve görüşme süreci hakkında
+          e-posta üzerinden iletişime geçebilirsiniz.
+        </p>
+
+        <div class="contact-method-footer">
+          <strong>{iletisimBilgileri.email}</strong>
+          <span aria-hidden="true">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
     </main>
 
     <footer class="footer">
@@ -1026,6 +1082,101 @@ const hizmetler = Object.values(hizmetDosyalari)
 
   .mobile-menu nav a:last-child {
     border-bottom: none;
+  }
+}
+
+
+/* İLETİŞİM YÖNTEMLERİ */
+
+.contact-description {
+  max-width: 650px;
+  color: #69796e;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 40px;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.contact-method {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: #f8f6f1;
+  border: 1px solid #e1e7df;
+  color: #293b34;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+  min-width: 0;
+}
+
+.contact-method:hover {
+  border-color: #86a18d;
+  transform: translateY(-3px);
+}
+
+.contact-number {
+  color: #779681;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.contact-method h3 {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: normal;
+  margin: 30px 0 15px;
+}
+
+.contact-method p {
+  color: #69796e;
+  font-size: 14px;
+  line-height: 1.8;
+  flex: 1;
+}
+
+.contact-method-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  border-top: 1px solid #dce4d9;
+  padding-top: 20px;
+  color: #355b4b;
+  font-size: 13px;
+}
+
+.contact-method-footer strong {
+  overflow-wrap: anywhere;
+}
+
+.contact-method-footer span {
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method {
+    padding: 26px;
+  }
+
+  .contact-method h3 {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-method {
+    transition: none;
   }
 }
 
