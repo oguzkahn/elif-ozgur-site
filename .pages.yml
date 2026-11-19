@@ -230,4 +230,37 @@ content:
         label: Sayfa Açıklaması
         type: text
 
+
         
+  - name: egitim_icerikleri
+    label: Mesleki Eğitimler ve Seminerler
+    type: file
+    path: src/data/egitim-icerikleri.json
+    format: json
+
+    operations:
+      delete: false
+
+    fields:
+      - name: meslekiEgitimler
+        label: Mesleki Eğitimler
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{ad}"
+        fields:
+          - name: ad
+            label: Eğitim Adı
+            type: string
+            required: true
+
+          - name: veren
+            label: Eğitimi Veren Kişi / Kurum
+            type: string
+
+      - name: seminerler
+        label: Eğitim ve Seminerler
+        type: string
+        list: true
+
