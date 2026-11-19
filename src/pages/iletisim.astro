@@ -6,6 +6,8 @@ import Header from "../components/Header.astro";
 
 import iletisim from "../data/iletisim.json";
 
+import seo from "../data/seo.json";
+
 
 
 const telefon = iletisim.telefon.replace(/^\+/, "");
@@ -40,10 +42,12 @@ const yerelIsletme = {
     <meta name="theme-color" content="#f8f6f1" />
     <title>İletişim | Klinik Psikolog Elif Özgür Önal</title>
     
+
 <SEOHead
-  title="İletişim ve Randevu | Elif Özgür Önal – Sakarya"
-  description="Sakarya Serdivan'da yüz yüze ve online terapi görüşmeleri için Klinik Psikolog Elif Özgür Önal'a ulaşın.
-"
+  title={seo.iletisim.title}
+  description={seo.iletisim.description}
+/>
+
 />
 
 <script

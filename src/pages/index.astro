@@ -11,6 +11,8 @@ import anasayfa from "../data/anasayfa.json";
 
 import iletisimBilgileri from "../data/iletisim.json";
 
+import seo from "../data/seo.json";
+
 
 
 const hizmetDosyalari = import.meta.glob(
@@ -45,10 +47,12 @@ const hizmetler = Object.values(hizmetDosyalari)
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f8f6f1" />
 
-  <SEOHead
-    title="Sakarya Serdivan Klinik Psikolog | Elif Özgür Önal"
-    description="Sakarya Serdivan'da yüz yüze ve online terapi, çocuk, ergen ve yetişkinlere yönelik psikolojik destek hakkında bilgi alın.
-"
+  
+<SEOHead
+  title={seo.anasayfa.title}
+  description={seo.anasayfa.description}
+/>
+
   />
 </head>
 

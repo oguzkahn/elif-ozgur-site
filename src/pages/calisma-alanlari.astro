@@ -7,6 +7,9 @@ import Header from "../components/Header.astro";
 import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
 
+import seo from "../data/seo.json";
+
+
 const alanDosyalari = import.meta.glob(
   "../data/calisma-alanlari/*.json",
   {
@@ -34,10 +37,12 @@ const alanlar = Object.values(alanDosyalari)
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8f6f1" />
     
+
 <SEOHead
-  title="Çalışma Alanları | Klinik Psikolog Elif Özgür Önal"
-  description="Bireysel terapi, çocuk ve ergen terapisi, ebeveyn danışmanlığı, yüz yüze ve online terapi görüşmeleri hakkında bilgiler.
-"
+  title={seo.calismaAlanlari.title}
+  description={seo.calismaAlanlari.description}
+/>
+
 />
 
   </head>

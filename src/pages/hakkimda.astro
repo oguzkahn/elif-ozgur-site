@@ -7,6 +7,8 @@ import Header from "../components/Header.astro";
 import hakkimda from "../data/hakkimda.json";
 
 
+import seo from "../data/seo.json";
+
 const egitimler = [
   {
     baslik: "Lisans Eğitimi",
@@ -28,10 +30,12 @@ const egitimler = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     
+
 <SEOHead
-  title="Hakkımda | Klinik Psikolog Elif Özgür Önal"
-  description="Klinik Psikolog Elif Özgür Önal'ın akademik eğitimi, mesleki yaklaşımı, yüz yüze ve online psikoterapi çalışmaları.
-"
+  title={seo.hakkimda.title}
+  description={seo.hakkimda.description}
+/>
+
 />
 
   </head>
