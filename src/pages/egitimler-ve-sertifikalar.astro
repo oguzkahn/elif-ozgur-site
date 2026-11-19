@@ -3,12 +3,17 @@
 import Header from "../components/Header.astro";
 import SEOHead from "../components/SEOHead.astro";
 
+
 import {
   akademikEgitimler,
-  meslekiEgitimler,
-  seminerler,
   sertifikalar
 } from "../data/egitimler.js";
+
+import egitimIcerikleri from "../data/egitim-icerikleri.json";
+
+const meslekiEgitimler = egitimIcerikleri.meslekiEgitimler;
+const seminerler = egitimIcerikleri.seminerler;
+
 ---
 
 <!doctype html>
