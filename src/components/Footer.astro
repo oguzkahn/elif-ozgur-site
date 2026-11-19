@@ -1,71 +1,149 @@
 
 ---
 import bilgiler from "../data/site-bilgileri.json";
+
+const yil = new Date().getFullYear();
+
+const tarihParcalari = bilgiler.sonGuncelleme.split(".");
+
+const tarihISO =
+  tarihParcalari.length === 3
+    ? `${tarihParcalari[2]}-${tarihParcalari[1]}-${tarihParcalari[0]}`
+    : undefined;
 ---
 
 <footer class="site-footer">
   <div class="footer-container">
 
+    <!-- LOGO VE SOSYAL MEDYA -->
     <div class="footer-top">
+
       <div class="footer-brand">
         <h2>Elif Özgür Önal</h2>
         <p>Klinik Psikolog · Serdivan, Sakarya</p>
       </div>
 
-      <nav class="footer-links" aria-label="Sosyal medya ve profiller">
-  <a
-    href={bilgiler.instagram}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="footer-social-link"
-  >
-    <span class="footer-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-        <circle cx="12" cy="12" r="4"></circle>
-        <circle cx="17.3" cy="6.7" r="1"></circle>
-      </svg>
-    </span>
-    <span>Instagram</span>
-    <span aria-hidden="true">↗</span>
-  </a>
+      <nav
+        class="footer-socials"
+        aria-label="Sosyal medya ve mesleki profiller"
+      >
 
-  <a
-    href={bilgiler.doktorsitesi}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="footer-social-link"
-  >
-    <span class="footer-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="12" cy="8" r="3.2"></circle>
-        <path d="M5.5 19c1.8-3.2 4-4.8 6.5-4.8S16.7 15.8 18.5 19"></path>
-        <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
-      </svg>
-    </span>
-    <span>DoktorSitesi</span>
-    <span aria-hidden="true">↗</span>
-  </a>
-</nav>
+        <!-- INSTAGRAM -->
+        <a
+          href={bilgiler.instagram}
+          class="social-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="social-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="6"
+              />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </span>
+
+          <span>Instagram</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- DOKTORSİTESİ -->
+        <a
+          href={bilgiler.doktorsitesi}
+          class="social-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="social-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6 3v6a5 5 0 0 0 10 0V3"
+              />
+              <path d="M4 3h4M14 3h4" />
+              <path
+                d="M11 14v2a5 5 0 0 0 10 0v-2"
+              />
+              <circle cx="21" cy="12" r="2" />
+            </svg>
+          </span>
+
+          <span>DoktorSitesi</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </nav>
     </div>
 
+    <!-- HUKUKİ BAĞLANTILAR -->
+    <nav
+      class="footer-legal"
+      aria-label="Yasal bilgilendirmeler"
+    >
+      <a href="/kvkk-aydinlatma-metni">
+        KVKK Aydınlatma Metni
+      </a>
+
+      <a href="/gizlilik-politikasi">
+        Gizlilik Politikası
+      </a>
+
+      <a href="/cerez-politikasi">
+        Çerez Politikası
+      </a>
+    </nav>
+
+    <!-- ALT BİLGİ -->
     <div class="footer-bottom">
-      <p>
-        © {new Date().getFullYear()} Elif Özgür Önal
-      </p>
 
-      <p>
-        Son içerik güncellemesi:
-        <time>{bilgiler.sonGuncelleme}</time>
-      </p>
+      <div class="footer-copyright">
+        <p>
+          © {yil} Elif Özgür Önal
+        </p>
 
-      <p>
-        Site editörü iletişim:
+        <p>
+          Son içerik güncellemesi:
+          <time datetime={tarihISO}>
+            {bilgiler.sonGuncelleme}
+          </time>
+        </p>
+      </div>
+
+      <div class="footer-editor">
+        <span>Site editörü iletişim:</span>
+
         <a href={`mailto:${bilgiler.editorEposta}`}>
           {bilgiler.editorEposta}
         </a>
-      </p>
+      </div>
+
     </div>
+
   </div>
 </footer>
 
@@ -73,7 +151,7 @@ import bilgiler from "../data/site-bilgileri.json";
   .site-footer {
     background: #eaece4;
     color: #293b34;
-    padding: 52px 0 28px;
+    padding: 64px 0 30px;
   }
 
   .footer-container {
@@ -82,67 +160,188 @@ import bilgiler from "../data/site-bilgileri.json";
     padding: 0 28px;
   }
 
+  /* ÜST KISIM */
+
   .footer-top {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid #d2dccf;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    padding-bottom: 40px;
   }
 
   .footer-brand h2 {
     font-family: Georgia, serif;
-    font-size: 27px;
+    font-size: 30px;
     font-weight: normal;
     margin: 0 0 12px;
   }
 
   .footer-brand p {
-    font-size: 13px;
     color: #718075;
+    font-size: 13px;
     margin: 0;
   }
 
-  .footer-links {
+  /* SOSYAL MEDYA KARTLARI */
+
+  .footer-socials {
     display: flex;
-    gap: 25px;
     align-items: center;
     flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .footer-links a,
-  .footer-bottom a {
+  .social-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 17px;
+    border: 1px solid #d3ddd2;
+    border-radius: 8px;
+    background: #f8f6f1;
     color: #355b4b;
+    font-size: 13px;
+    font-weight: 600;
     text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease;
   }
 
-  .footer-links a:hover,
-  .footer-bottom a:hover {
+  .social-card:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+    border-color: #89a492;
+  }
+
+  .social-card:focus-visible,
+  .footer-legal a:focus-visible,
+  .footer-editor a:focus-visible {
+    outline: 2px solid #355b4b;
+    outline-offset: 3px;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .arrow {
+    font-size: 16px;
+    margin-left: 3px;
+    transition: transform 0.2s ease;
+  }
+
+  .social-card:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* HUKUKİ BAĞLANTILAR */
+
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 30px;
+    padding: 26px 0;
+    border-top: 1px solid #d2dccf;
+    border-bottom: 1px solid #d2dccf;
+  }
+
+  .footer-legal a {
+    color: #355b4b;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-legal a:hover {
+    color: #608c70;
     text-decoration: underline;
   }
 
+  /* ALT BİLGİ */
+
   .footer-bottom {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px 24px;
-    padding-top: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px 35px;
+    padding-top: 26px;
   }
 
-  .footer-bottom p {
+  .footer-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .footer-copyright p {
     margin: 0;
+    color: #718075;
     font-size: 12px;
-    line-height: 1.8;
+    line-height: 1.7;
+  }
+
+  .footer-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12px;
     color: #718075;
   }
 
+  .footer-editor a {
+    color: #355b4b;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-editor a:hover {
+    text-decoration: underline;
+  }
+
+  /* MOBİL */
+
   @media (max-width: 700px) {
+    .site-footer {
+      padding: 45px 0 25px;
+    }
+
     .footer-container {
       padding: 0 20px;
     }
 
     .footer-top {
       flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+
+    .footer-socials {
+      width: 100%;
+    }
+
+    .social-card {
+      padding: 12px 14px;
+    }
+
+    .footer-legal {
+      flex-direction: column;
+      gap: 17px;
     }
 
     .footer-bottom {
@@ -150,24 +349,11 @@ import bilgiler from "../data/site-bilgileri.json";
     }
   }
 
-  .footer-social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
-}
-
-.footer-icon svg {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
+  @media (prefers-reduced-motion: reduce) {
+    .social-card,
+    .arrow,
+    .footer-legal a {
+      transition: none;
+    }
+  }
 </style>
