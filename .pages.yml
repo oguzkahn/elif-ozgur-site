@@ -5,6 +5,43 @@ media:
   rename: safe
 
 content:
+
+  - name: calisma_alanlari
+    label: Çalışma Alanları
+    type: collection
+    path: src/data/calisma-alanlari
+    format: json
+    filename: "{primary}.json"
+
+    view:
+      primary: baslik
+      fields: [baslik, sira, yayinda]
+      sort: [sira]
+      default:
+        sort: sira
+        order: asc
+
+    fields:
+      - name: baslik
+        label: Çalışma Alanı Başlığı
+        type: string
+        required: true
+
+      - name: aciklama
+        label: Açıklama
+        type: text
+        required: true
+
+      - name: sira
+        label: Görünüm Sırası
+        type: number
+        default: 10
+
+      - name: yayinda
+        label: Sitede Göster
+        type: boolean
+        default: true
+
   - name: sertifikalar
     label: Sertifikalar
     type: collection
