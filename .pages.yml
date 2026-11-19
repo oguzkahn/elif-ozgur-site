@@ -103,4 +103,47 @@ content:
         label: İletişim Açıklaması
         type: text
 
+
+        
+  - name: hakkimda_icerikleri
+    label: Hakkımda İçerikleri
+    type: file
+    path: src/data/hakkimda.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: sayfaBasligi
+        label: Sayfa Başlığı
+        type: string
+
+      - name: sayfaAciklamasi
+        label: Sayfa Alt Açıklaması
+        type: string
+
+      - name: tanitimBasligi
+        label: Tanıtım Başlığı
+        type: string
+
+      - name: paragraf1
+        label: Akademik Özgeçmiş
+        type: text
+
+      - name: paragraf2
+        label: Çalıştığım Yaş Grupları
+        type: text
+
+      - name: paragraf3
+        label: Terapi Yaklaşımları
+        type: text
+
+      - name: paragraf4
+        label: Yüz Yüze ve Online Terapi
+        type: text
+
+      - name: egitimBasligi
+        label: Eğitim Bölümü Başlığı
+        type: string
+
+
         
