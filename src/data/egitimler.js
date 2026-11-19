@@ -58,4 +58,18 @@ export const seminerler = [
 
 // Belgeleri doğruladıkça buraya ekleyeceğiz.
 // Henüz eğitimleri otomatik olarak sertifika kabul etmiyoruz.
-export const sertifikalar = [];
+
+const sertifikaDosyalari = import.meta.glob(
+  "./sertifikalar/*.json",
+  {
+    eager: true,
+    import: "default"
+  }
+);
+
+export const sertifikalar = Object.values(sertifikaDosyalari)
+  .filter((belge) => belge && belge.ad)
+  .sort((a, b) =>
+    String(b.yil || "").localeCompare(String(a.yil || ""))
+  );
+
