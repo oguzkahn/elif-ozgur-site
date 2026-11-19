@@ -15,14 +15,16 @@ const tarihISO =
 <footer class="site-footer">
   <div class="footer-container">
 
-    <!-- LOGO VE SOSYAL MEDYA -->
+    <!-- ÜST BÖLÜM -->
     <div class="footer-top">
 
+      <!-- İSİM VE UNVAN -->
       <div class="footer-brand">
         <h2>Elif Özgür Önal</h2>
         <p>Klinik Psikolog · Serdivan, Sakarya</p>
       </div>
 
+      <!-- SOSYAL MEDYA BAĞLANTILARI -->
       <nav
         class="footer-socials"
         aria-label="Sosyal medya ve mesleki profiller"
@@ -34,6 +36,7 @@ const tarihISO =
           class="social-card"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Instagram profilini aç (yeni sekme)"
         >
           <span class="social-icon" aria-hidden="true">
             <svg
@@ -44,13 +47,7 @@ const tarihISO =
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <rect
-                x="2"
-                y="2"
-                width="20"
-                height="20"
-                rx="6"
-              />
+              <rect x="2" y="2" width="20" height="20" rx="6" />
               <circle cx="12" cy="12" r="4" />
               <circle
                 cx="17.5"
@@ -72,6 +69,7 @@ const tarihISO =
           class="social-card"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="DoktorSitesi profilini aç (yeni sekme)"
         >
           <span class="social-icon" aria-hidden="true">
             <svg
@@ -82,13 +80,9 @@ const tarihISO =
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <path
-                d="M6 3v6a5 5 0 0 0 10 0V3"
-              />
+              <path d="M6 3v6a5 5 0 0 0 10 0V3" />
               <path d="M4 3h4M14 3h4" />
-              <path
-                d="M11 14v2a5 5 0 0 0 10 0v-2"
-              />
+              <path d="M11 14v2a5 5 0 0 0 10 0v-2" />
               <circle cx="21" cy="12" r="2" />
             </svg>
           </span>
@@ -100,54 +94,24 @@ const tarihISO =
       </nav>
     </div>
 
-    <!-- HUKUKİ BAĞLANTILAR -->
-    <nav
-      class="footer-legal"
-      aria-label="Yasal bilgilendirmeler"
-    >
-      <a href="/kvkk-aydinlatma-metni">
-        KVKK Aydınlatma Metni
-      </a>
-
-      <a href="/gizlilik-politikasi">
-        Gizlilik Politikası
-      </a>
-
-      <a href="/cerez-politikasi">
-        Çerez Politikası
-      </a>
-    </nav>
-
-    <!-- ALT BİLGİ -->
+    <!-- ALT BÖLÜM -->
     <div class="footer-bottom">
+      <p>© {yil} Elif Özgür Önal</p>
 
-      <div class="footer-copyright">
-        <p>
-          © {yil} Elif Özgür Önal
-        </p>
-
-        <p>
-          Son içerik güncellemesi:
-          <time datetime={tarihISO}>
-            {bilgiler.sonGuncelleme}
-          </time>
-        </p>
-      </div>
-
-      <div class="footer-editor">
-        <span>Site editörü iletişim:</span>
-
-        <a href={`mailto:${bilgiler.editorEposta}`}>
-          {bilgiler.editorEposta}
-        </a>
-      </div>
-
+      <p>
+        Son içerik güncellemesi:
+        <time datetime={tarihISO}>
+          {bilgiler.sonGuncelleme}
+        </time>
+      </p>
     </div>
 
   </div>
 </footer>
 
 <style>
+  /* GENEL FOOTER */
+
   .site-footer {
     background: #eaece4;
     color: #293b34;
@@ -160,7 +124,7 @@ const tarihISO =
     padding: 0 28px;
   }
 
-  /* ÜST KISIM */
+  /* ÜST BÖLÜM */
 
   .footer-top {
     display: flex;
@@ -169,22 +133,27 @@ const tarihISO =
     flex-wrap: wrap;
     gap: 35px;
     padding-bottom: 40px;
+    border-bottom: 1px solid #d2dccf;
   }
 
+  /* İSİM VE UNVAN */
+
   .footer-brand h2 {
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 30px;
     font-weight: normal;
+    line-height: 1.25;
     margin: 0 0 12px;
   }
 
   .footer-brand p {
     color: #718075;
     font-size: 13px;
+    line-height: 1.7;
     margin: 0;
   }
 
-  /* SOSYAL MEDYA KARTLARI */
+  /* SOSYAL MEDYA */
 
   .footer-socials {
     display: flex;
@@ -196,18 +165,20 @@ const tarihISO =
   .social-card {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     padding: 14px 17px;
+    background: #f8f6f1;
     border: 1px solid #d3ddd2;
     border-radius: 8px;
-    background: #f8f6f1;
     color: #355b4b;
     font-size: 13px;
     font-weight: 600;
+    line-height: 1.4;
     text-decoration: none;
     transition:
       transform 0.2s ease,
-      background 0.2s ease,
+      background-color 0.2s ease,
       border-color 0.2s ease;
   }
 
@@ -217,26 +188,26 @@ const tarihISO =
     border-color: #89a492;
   }
 
-  .social-card:focus-visible,
-  .footer-legal a:focus-visible,
-  .footer-editor a:focus-visible {
+  .social-card:focus-visible {
     outline: 2px solid #355b4b;
     outline-offset: 3px;
   }
 
+  /* İKONLAR */
+
   .social-icon {
     display: inline-flex;
-    width: 19px;
-    height: 19px;
-    flex: 0 0 19px;
     align-items: center;
     justify-content: center;
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
   }
 
   .social-icon svg {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
   }
 
   .arrow {
@@ -249,72 +220,31 @@ const tarihISO =
     transform: translate(2px, -2px);
   }
 
-  /* HUKUKİ BAĞLANTILAR */
-
-  .footer-legal {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px 30px;
-    padding: 26px 0;
-    border-top: 1px solid #d2dccf;
-    border-bottom: 1px solid #d2dccf;
-  }
-
-  .footer-legal a {
-    color: #355b4b;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .footer-legal a:hover {
-    color: #608c70;
-    text-decoration: underline;
-  }
-
-  /* ALT BİLGİ */
+  /* ALT BİLGİLER */
 
   .footer-bottom {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 20px 35px;
+    gap: 10px 30px;
     padding-top: 26px;
   }
 
-  .footer-copyright {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .footer-copyright p {
+  .footer-bottom p {
     margin: 0;
     color: #718075;
     font-size: 12px;
     line-height: 1.7;
   }
 
-  .footer-editor {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    font-size: 12px;
-    color: #718075;
-  }
-
-  .footer-editor a {
+  .footer-bottom time {
     color: #355b4b;
-    text-decoration: none;
-    overflow-wrap: anywhere;
+    font-weight: 500;
+    margin-left: 4px;
   }
 
-  .footer-editor a:hover {
-    text-decoration: underline;
-  }
-
-  /* MOBİL */
+  /* MOBİL GÖRÜNÜM */
 
   @media (max-width: 700px) {
     .site-footer {
@@ -331,6 +261,10 @@ const tarihISO =
       gap: 25px;
     }
 
+    .footer-brand h2 {
+      font-size: 27px;
+    }
+
     .footer-socials {
       width: 100%;
     }
@@ -339,21 +273,22 @@ const tarihISO =
       padding: 12px 14px;
     }
 
-    .footer-legal {
-      flex-direction: column;
-      gap: 17px;
-    }
-
     .footer-bottom {
       flex-direction: column;
+      align-items: flex-start;
     }
   }
 
+  /* HAREKET AZALTMA TERCİHİ */
+
   @media (prefers-reduced-motion: reduce) {
     .social-card,
-    .arrow,
-    .footer-legal a {
+    .arrow {
       transition: none;
+    }
+
+    .social-card:hover {
+      transform: none;
     }
   }
 </style>
