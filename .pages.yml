@@ -5,14 +5,12 @@ media:
   rename: safe
 
 content:
-
   - name: calisma_alanlari
     label: Çalışma Alanları
     type: collection
     path: src/data/calisma-alanlari
     format: json
     filename: "{primary}.json"
-
     view:
       primary: baslik
       fields: [baslik, sira, yayinda]
@@ -20,23 +18,19 @@ content:
       default:
         sort: sira
         order: asc
-
     fields:
       - name: baslik
         label: Çalışma Alanı Başlığı
         type: string
         required: true
-
       - name: aciklama
         label: Açıklama
         type: text
         required: true
-
       - name: sira
         label: Görünüm Sırası
         type: number
         default: 10
-
       - name: yayinda
         label: Sitede Göster
         type: boolean
@@ -53,38 +47,29 @@ content:
         label: Sertifika Adı
         type: string
         required: true
-
       - name: kurum
         label: Eğitimi Veren Kurum
         type: string
-
       - name: yil
         label: Eğitim Yılı
         type: string
-
       - name: sure
         label: Eğitim Süresi
         type: string
-
       - name: aciklama
         label: Açıklama
         type: text
-
       - name: gorsel
         label: Sertifika Görseli
         type: image
-
       - name: belge
         label: PDF Belgesi
         type: file
         options:
           categories: [document]
-
     view:
       primary: ad
       fields: [ad, kurum, yil]
-
-
 
   - name: gorusme_metinleri
     label: Görüşme Metinleri
@@ -96,18 +81,14 @@ content:
         label: Bölüm Açıklaması
         type: text
         required: true
-
       - name: yuzYuzeAciklama
         label: Yüz Yüze Terapi Açıklaması
         type: text
         required: true
-
       - name: onlineAciklama
         label: Online Terapi Açıklaması
         type: text
         required: true
-
-
 
   - name: anasayfa
     label: Ana Sayfa İçerikleri
@@ -119,29 +100,22 @@ content:
         label: Ana Başlık
         type: string
         required: true
-
       - name: anaAciklama
         label: Ana Açıklama
         type: text
-
       - name: hakkimdaBaslik
         label: Hakkımda Başlığı
         type: string
-
       - name: hakkimdaAciklama
         label: Hakkımda Açıklaması
         type: text
-
       - name: iletisimBaslik
         label: İletişim Başlığı
         type: string
-
       - name: iletisimAciklama
         label: İletişim Açıklaması
         type: text
 
-
-        
   - name: hakkimda_icerikleri
     label: Hakkımda İçerikleri
     type: file
@@ -153,96 +127,73 @@ content:
       - name: sayfaBasligi
         label: Sayfa Başlığı
         type: string
-
       - name: sayfaAciklamasi
         label: Sayfa Alt Açıklaması
         type: string
-
       - name: tanitimBasligi
         label: Tanıtım Başlığı
         type: string
-
       - name: paragraf1
         label: Akademik Özgeçmiş
         type: text
-
       - name: paragraf2
         label: Çalıştığım Yaş Grupları
         type: text
-
       - name: paragraf3
         label: Terapi Yaklaşımları
         type: text
-
       - name: paragraf4
         label: Yüz Yüze ve Online Terapi
         type: text
-
       - name: egitimBasligi
         label: Eğitim Bölümü Başlığı
         type: string
-
-
 
   - name: iletisim_bilgileri
     label: İletişim Bilgileri
     type: file
     path: src/data/iletisim.json
     format: json
-
     operations:
       delete: false
-
     fields:
       - name: telefon
         label: Telefon (Uluslararası)
         type: string
         required: true
-
       - name: telefonGorunen
         label: Görünen Telefon Numarası
         type: string
         required: true
-
       - name: whatsapp
         label: WhatsApp Numarası
         type: string
         required: true
-
       - name: email
         label: E-posta Adresi
         type: string
         required: true
-
       - name: adres
         label: Ofis Adresi
         type: text
-
       - name: haritaLinki
         label: Google Maps Bağlantısı
         type: string
-
       - name: sayfaBasligi
         label: Sayfa Başlığı
         type: string
-
       - name: sayfaAciklamasi
         label: Sayfa Açıklaması
         type: text
 
-
-        
   - name: egitim_icerikleri
     label: Mesleki Eğitimler ve Seminerler
     type: file
     path: src/data/egitim-icerikleri.json
     format: json
-
     operations:
       delete: false
-
     fields:
-
       - name: akademikEgitimler
         label: Akademik Eğitimler
         type: object
@@ -255,16 +206,13 @@ content:
             label: Eğitim Derecesi
             type: string
             required: true
-
           - name: kurum
             label: Üniversite
             type: string
             required: true
-
           - name: aciklama
             label: Açıklama
             type: text
-
       - name: meslekiEgitimler
         label: Mesleki Eğitimler
         type: object
@@ -277,23 +225,19 @@ content:
             label: Eğitim Adı
             type: string
             required: true
-
           - name: veren
             label: Eğitimi Veren Kişi / Kurum
             type: string
-
       - name: seminerler
         label: Eğitim ve Seminerler
         type: string
         list: true
-
 
   - name: seo_ayarlari
     label: SEO Ayarları
     type: file
     path: src/data/seo.json
     format: json
-
     fields:
       - name: anasayfa
         label: Ana Sayfa
@@ -305,7 +249,6 @@ content:
           - name: description
             label: Google Açıklaması
             type: text
-
       - name: hakkimda
         label: Hakkımda
         type: object
@@ -316,7 +259,6 @@ content:
           - name: description
             label: Google Açıklaması
             type: text
-
       - name: calismaAlanlari
         label: Çalışma Alanları
         type: object
@@ -327,7 +269,6 @@ content:
           - name: description
             label: Google Açıklaması
             type: text
-
       - name: egitimler
         label: Eğitimler ve Sertifikalar
         type: object
@@ -338,7 +279,6 @@ content:
           - name: description
             label: Google Açıklaması
             type: text
-
       - name: iletisim
         label: İletişim
         type: object
@@ -350,70 +290,54 @@ content:
             label: Google Açıklaması
             type: text
 
-
   - name: site_gorselleri
     label: Site Görselleri
     type: file
     path: src/data/gorseller.json
     format: json
-
     operations:
       delete: false
-
     fields:
       - name: anaSayfaFotografi
         label: Ana Sayfa Fotoğrafı
         type: image
         options:
           extensions: [jpg, jpeg, png, webp]
-
       - name: anaSayfaAlt
         label: Ana Sayfa Fotoğraf Açıklaması
         type: string
-
       - name: hakkimdaFotografi
         label: Hakkımda Fotoğrafı
         type: image
         options:
           extensions: [jpg, jpeg, png, webp]
-
-          - name: ofisFotografi
+      - name: hakkimdaAlt
+        label: Hakkımda Fotoğraf Açıklaması
+        type: string
+      - name: ofisFotografi
         label: Görüşme Odası Fotoğrafı
         type: image
         options:
           extensions: [jpg, jpeg, png, webp]
-
       - name: ofisAlt
         label: Görüşme Odası Fotoğraf Açıklaması
         type: string
-
-      - name: hakkimdaAlt
-        label: Hakkımda Fotoğraf Açıklaması
-        type: string
-
 
   - name: site_bilgileri
     label: Site Alt Bilgileri
     type: file
     path: src/data/site-bilgileri.json
     format: json
-
     fields:
       - name: instagram
         label: Instagram Bağlantısı
         type: string
-
       - name: doktorsitesi
         label: DoktorSitesi Bağlantısı
         type: string
-
       - name: sonGuncelleme
         label: Son İçerik Güncelleme Tarihi
         type: string
-
       - name: editorEposta
         label: Site Editörü İletişim E-postası
         type: string
-
-
-      
