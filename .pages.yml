@@ -46,3 +46,26 @@ content:
     view:
       primary: ad
       fields: [ad, kurum, yil]
+
+
+
+  - name: gorusme_metinleri
+    label: Görüşme Metinleri
+    type: file
+    path: src/data/gorusmeler.json
+    format: json
+    fields:
+      - name: genelAciklama
+        label: Bölüm Açıklaması
+        type: text
+        required: true
+
+      - name: yuzYuzeAciklama
+        label: Yüz Yüze Terapi Açıklaması
+        type: text
+        required: true
+
+      - name: onlineAciklama
+        label: Online Terapi Açıklaması
+        type: text
+        required: true
