@@ -7,7 +7,6 @@ import Header from "../components/Header.astro";
 
 import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
-
 import anasayfa from "../data/anasayfa.json";
 
 const hizmetler = [
@@ -138,11 +137,9 @@ const hizmetler = [
 
           <div class="about-content">
             <h3>Merhaba, ben Elif Özgür Önal.</h3>
-            <p>
-              Lisans eğitimimi Uludağ Üniversitesi Psikoloji
-              Bölümünde, yüksek lisans eğitimimi ise Üsküdar
-              Üniversitesi Klinik Psikoloji alanında tamamladım.
-            </p>
+            
+              <p>{anasayfa.hakkimdaAciklama}</p>
+            
             <p>
               Mesleki çalışmalarımda çocuk, ergen ve yetişkin
               danışanlarla çalışıyorum. Bilişsel Davranışçı
@@ -199,10 +196,9 @@ const hizmetler = [
           <div>
             <span class="eyebrow eyebrow-light">İLK ADIM</span>
             <h2>İletişime geçebilirsiniz.</h2>
-            <p>
-              Görüşme süreci ve randevu hakkında bilgi almak
-              için iletişim kanallarını kullanabilirsiniz.
-            </p>
+            
+<p>{anasayfa.iletisimAciklama}</p>
+
           </div>
           <a href="tel:+905548765453" class="button button-light">
             Telefonla Ara <span aria-hidden="true">↗</span>
@@ -210,10 +206,12 @@ const hizmetler = [
         </div>
       </section>
 
-      <section id="iletisim" class="section contact">
-        <div class="container">
-          <span class="eyebrow">BİZE ULAŞIN</span>
-          <h2>İletişim<span class="dot">.</span></h2>
+      
+<section id="iletisim" class="section contact">
+  <div class="container">
+    <span class="eyebrow">BİZE ULAŞIN</span>
+    <h2>{anasayfa.iletisimBaslik}<span class="dot">.</span></h2>
+
 
           <div class="contact-grid">
             <div class="contact-item">
