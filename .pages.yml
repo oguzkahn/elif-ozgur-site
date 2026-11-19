@@ -183,4 +183,51 @@ content:
         type: string
 
 
+
+  - name: iletisim_bilgileri
+    label: İletişim Bilgileri
+    type: file
+    path: src/data/iletisim.json
+    format: json
+
+    operations:
+      delete: false
+
+    fields:
+      - name: telefon
+        label: Telefon (Uluslararası)
+        type: string
+        required: true
+
+      - name: telefonGorunen
+        label: Görünen Telefon Numarası
+        type: string
+        required: true
+
+      - name: whatsapp
+        label: WhatsApp Numarası
+        type: string
+        required: true
+
+      - name: email
+        label: E-posta Adresi
+        type: string
+        required: true
+
+      - name: adres
+        label: Ofis Adresi
+        type: text
+
+      - name: haritaLinki
+        label: Google Maps Bağlantısı
+        type: string
+
+      - name: sayfaBasligi
+        label: Sayfa Başlığı
+        type: string
+
+      - name: sayfaAciklamasi
+        label: Sayfa Açıklaması
+        type: text
+
         
