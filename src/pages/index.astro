@@ -8,7 +8,7 @@ import Header from "../components/Header.astro";
 import GorusmeSecenekleri from "../components/GorusmeSecenekleri.astro";
 
 
-
+import anasayfa from "../data/anasayfa.json";
 
 const hizmetler = [
   {
@@ -75,11 +75,11 @@ const hizmetler = [
               <span>Elif Özgür Önal</span>
             </h1>
 
-            <p class="hero-description">
-              Kendinizi anlamaya, duygularınızı keşfetmeye ve
-              yaşamınızdaki güçlükleri ele almaya yönelik
-              profesyonel bir psikolojik destek süreci.
-            </p>
+            
+<p class="hero-description">
+  {anasayfa.anaAciklama}
+</p>
+
 
             <div class="hero-actions">
               <a href="/iletisim" class="button button-primary">
