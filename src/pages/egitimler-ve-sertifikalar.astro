@@ -1,0 +1,461 @@
+
+---
+import Header from "../components/Header.astro";
+import SEOHead from "../components/SEOHead.astro";
+
+import {
+  akademikEgitimler,
+  meslekiEgitimler,
+  seminerler,
+  sertifikalar
+} from "../data/egitimler.js";
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f1" />
+
+    <SEOHead
+      title="Eğitimler ve Sertifikalar | Klinik Psikolog Elif Özgür Önal"
+      description="Klinik Psikolog Elif Özgür Önal'ın akademik eğitimi, psikoterapi eğitimleri, mesleki gelişim çalışmaları ve sertifikaları hakkında bilgiler."
+    />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <span class="eyebrow">MESLEKİ GELİŞİM</span>
+          <h1>Eğitimler ve <em>Sertifikalar.</em></h1>
+          <p>
+            Akademik eğitimim, psikoterapi yaklaşımlarına
+            ilişkin aldığım eğitimler ve mesleki gelişim
+            çalışmalarım hakkında bilgiler.
+          </p>
+        </div>
+      </section>
+
+      <nav class="section-nav" aria-label="Sayfa bölümleri">
+        <div class="container nav-links">
+          <a href="#akademik">Akademik Eğitim</a>
+          <a href="#mesleki">Mesleki Eğitimler</a>
+          <a href="#seminerler">Eğitim ve Seminerler</a>
+          <a href="#sertifikalar">Sertifikalar</a>
+        </div>
+      </nav>
+
+      <section class="section" id="akademik">
+        <div class="container">
+          <span class="eyebrow">01 / AKADEMİK GEÇMİŞ</span>
+          <h2>Akademik Eğitim<span class="dot">.</span></h2>
+
+          <div class="academic-grid">
+            {akademikEgitimler.map((egitim) => (
+              <article class="academic-card">
+                <span class="small-label">{egitim.baslik}</span>
+                <h3>{egitim.kurum}</h3>
+                <p>{egitim.aciklama}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="mesleki">
+        <div class="container">
+          <span class="eyebrow">02 / MESLEKİ GELİŞİM</span>
+          <h2>Mesleki Eğitimler<span class="dot">.</span></h2>
+          <p class="section-description">
+            Psikoterapi ve psikolojik değerlendirme
+            alanlarında alınan temel mesleki eğitimler.
+          </p>
+
+          <div class="training-grid">
+            {meslekiEgitimler.map((egitim, i) => (
+              <article class="training-card">
+                <span class="training-number">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3>{egitim.ad}</h3>
+                <p>{egitim.veren}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="seminerler">
+        <div class="container">
+          <span class="eyebrow">03 / SÜREKLİ GELİŞİM</span>
+          <h2>Eğitim ve Seminerler<span class="dot">.</span></h2>
+          <p class="section-description">
+            Mesleki bilgi ve becerilerin geliştirilmesine
+            yönelik diğer eğitim, atölye ve seminerler.
+          </p>
+
+          <details class="seminar-list">
+            <summary>
+              <span>Tüm eğitim ve seminerleri görüntüle</span>
+              <span class="count">{seminerler.length} kayıt +</span>
+            </summary>
+
+            <ol>
+              {seminerler.map((ad) => (
+                <li>{ad}</li>
+              ))}
+            </ol>
+          </details>
+        </div>
+      </section>
+
+      <section class="section muted" id="sertifikalar">
+        <div class="container">
+          <span class="eyebrow">04 / BELGELER</span>
+          <h2>Sertifikalar<span class="dot">.</span></h2>
+          <p class="section-description">
+            Mesleki eğitimlere ilişkin sertifika ve belgeler.
+          </p>
+
+          {sertifikalar.length > 0 ? (
+            <div class="certificate-grid">
+              {sertifikalar.map((belge) => (
+                <article class="certificate-card">
+                  <span class="small-label">EĞİTİM BELGESİ</span>
+                  <h3>{belge.ad}</h3>
+                  <p>{belge.kurum}</p>
+                  {belge.yil && <small>{belge.yil}</small>}
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="empty-state">
+              Sertifika ve belge bilgileri doğrulandıktan
+              sonra bu bölümde listelenecektir.
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container cta-inner">
+          <div>
+            <span class="eyebrow">İLETİŞİM</span>
+            <h2>Görüşme hakkında bilgi alın.</h2>
+            <p>
+              Yüz yüze veya online terapi görüşmeleri
+              hakkında iletişime geçebilirsiniz.
+            </p>
+          </div>
+
+          <a href="/iletisim" class="button">
+            İletişime Geçin ↗
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <strong>Elif Özgür Önal</strong>
+        <span>© 2026 · Klinik Psikolog</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #f8f6f1;
+    color: #293b34;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .container {
+    max-width: 1160px;
+    margin: auto;
+    padding: 0 28px;
+  }
+
+  .hero {
+    background: #eaece4;
+    padding: 95px 0;
+  }
+
+  .eyebrow, .small-label {
+    color: #72917e;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.15;
+    margin: 25px 0;
+    max-width: 820px;
+  }
+
+  h1 em {
+    color: #648773;
+    font-weight: normal;
+  }
+
+  .hero p, .section-description {
+    max-width: 700px;
+    font-size: 15px;
+    color: #69796e;
+    line-height: 1.9;
+  }
+
+  .section-nav {
+    border-bottom: 1px solid #e0e7de;
+    background: #f8f6f1;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .nav-links a {
+    color: #355b4b;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .muted {
+    background: #f0f1eb;
+  }
+
+  h2 {
+    font-size: clamp(34px, 4vw, 52px);
+    margin: 20px 0 30px;
+  }
+
+  .dot {
+    color: #8aaa92;
+  }
+
+  .academic-grid, .training-grid,
+  .certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+  }
+
+  .academic-card, .training-card,
+  .certificate-card {
+    background: #fbfaf6;
+    padding: 35px;
+  }
+
+  .academic-card {
+    border-left: 3px solid #8baa95;
+  }
+
+  .academic-card h3,
+  .certificate-card h3 {
+    font-size: 27px;
+    margin: 23px 0 15px;
+  }
+
+  .academic-card p, .training-card p,
+  .certificate-card p {
+    color: #718075;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .training-number {
+    color: #8ba993;
+    font-size: 12px;
+  }
+
+  .training-card h3 {
+    font-size: 25px;
+    line-height: 1.35;
+    margin: 34px 0 18px;
+  }
+
+  .seminar-list {
+    margin-top: 35px;
+    background: #efeee7;
+  }
+
+  .seminar-list summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: #355b4b;
+  }
+
+  .count {
+    color: #78907e;
+    font-size: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  .seminar-list ol {
+    padding: 0 35px 32px 58px;
+    margin: 0;
+    columns: 2;
+    column-gap: 55px;
+  }
+
+  .seminar-list li {
+    break-inside: avoid;
+    padding: 10px 0;
+    color: #596b5f;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .certificate-card small {
+    color: #819184;
+  }
+
+  .empty-state {
+    margin-top: 35px;
+    padding: 35px;
+    border: 1px dashed #b7c7b9;
+    color: #718075;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .cta {
+    background: #355b4b;
+    color: #fff;
+    padding: 75px 0;
+  }
+
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .cta .eyebrow {
+    color: #c1d7c6;
+  }
+
+  .cta h2 {
+    margin: 15px 0;
+    font-size: 42px;
+  }
+
+  .cta p {
+    color: #d5e0d6;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 17px 24px;
+    background: #f8f6f1;
+    color: #355b4b;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  footer {
+    background: #eaece4;
+    padding: 30px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #718075;
+    font-size: 12px;
+  }
+
+  .footer-inner strong {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      padding: 0 20px;
+    }
+
+    .hero, .section {
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    .academic-grid, .training-grid,
+    .certificate-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .seminar-list ol {
+      columns: 1;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+</style>

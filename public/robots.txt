@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.elifozgur.com/sitemap-index.xml

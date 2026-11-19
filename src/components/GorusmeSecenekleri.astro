@@ -1,0 +1,172 @@
+
+<section class="gorusme-bolumu" aria-labelledby="gorusme-baslik">
+  <div class="gorusme-container">
+    <div class="gorusme-baslik">
+      <span class="ust-etiket">GÖRÜŞME SEÇENEKLERİ</span>
+      <h2 id="gorusme-baslik">
+        Yüz Yüze ve Online Terapi<span>.</span>
+      </h2>
+      <p>
+        Psikolojik destek süreci, danışanın ihtiyaçları ve
+        görüşme biçimine uygunluk değerlendirilerek planlanır.
+      </p>
+    </div>
+
+    <div class="gorusme-kartlari">
+      <article class="gorusme-kart">
+        <span class="numara">01 / YÜZ YÜZE</span>
+        <h3>Yüz Yüze Terapi</h3>
+        <p>
+          Sakarya Serdivan'daki görüşme merkezinde,
+          danışanın ihtiyaçları doğrultusunda yürütülen
+          psikoterapi görüşmeleri.
+        </p>
+        <div class="kart-alt">
+          <span>Serdivan · Sakarya</span>
+          <a href="/iletisim">Bilgi Al →</a>
+        </div>
+      </article>
+
+      <article class="gorusme-kart">
+        <span class="numara">02 / ONLINE</span>
+        <h3>Online Terapi</h3>
+        <p>
+          Uygunluk değerlendirmesi sonrasında,
+          güvenli bir dijital görüşme ortamında
+          uzaktan yürütülebilen psikoterapi görüşmeleri.
+        </p>
+        <div class="kart-alt">
+          <span>Uzaktan Görüşme</span>
+          <a href="/iletisim">Bilgi Al →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gorusme-bolumu {
+    background: #e9eee6;
+    padding: 95px 0;
+    color: #293b34;
+  }
+
+  .gorusme-container {
+    max-width: 1160px;
+    margin: auto;
+    padding: 0 28px;
+  }
+
+  .gorusme-baslik {
+    max-width: 770px;
+    margin-bottom: 42px;
+  }
+
+  .ust-etiket {
+    color: #71927d;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+  }
+
+  h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: clamp(35px, 4.5vw, 55px);
+    line-height: 1.2;
+    margin: 19px 0;
+  }
+
+  h2 span {
+    color: #8aaa92;
+  }
+
+  .gorusme-baslik p {
+    color: #69796e;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .gorusme-kartlari {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .gorusme-kart {
+    background: #fbfaf6;
+    padding: 38px;
+    min-height: 310px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .numara {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #819c88;
+  }
+
+  h3 {
+    font-size: 32px;
+    margin: 37px 0 18px;
+  }
+
+  .gorusme-kart p {
+    color: #69796e;
+    font-size: 14px;
+    line-height: 1.9;
+    flex: 1;
+  }
+
+  .kart-alt {
+    margin-top: 28px;
+    border-top: 1px solid #dce4d9;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .kart-alt span {
+    color: #819184;
+  }
+
+  .kart-alt a {
+    color: #355b4b;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .kart-alt a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 650px) {
+    .gorusme-bolumu {
+      padding: 65px 0;
+    }
+
+    .gorusme-container {
+      padding: 0 20px;
+    }
+
+    .gorusme-kartlari {
+      grid-template-columns: 1fr;
+    }
+
+    .gorusme-kart {
+      min-height: 260px;
+      padding: 28px;
+    }
+
+    h3 {
+      margin-top: 26px;
+    }
+  }
+</style>

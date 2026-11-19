@@ -6,6 +6,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  "https://www.elifozgur.com"
+).href;
 ---
 
 <title>{title}</title>
@@ -15,7 +20,16 @@ const { title, description } = Astro.props;
   content={description}
 />
 
+<link rel="canonical" href={canonicalUrl} />
+
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="tr_TR" />
+
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+
+<meta
+  property="og:description"
+  content={description}
+/>
+
+<meta property="og:url" content={canonicalUrl} />
