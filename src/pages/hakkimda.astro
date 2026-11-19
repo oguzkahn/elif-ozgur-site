@@ -4,6 +4,9 @@ import SEOHead from "../components/SEOHead.astro";
 
 import Header from "../components/Header.astro";
 
+import hakkimda from "../data/hakkimda.json";
+
+
 const egitimler = [
   {
     baslik: "Lisans Eğitimi",
@@ -37,88 +40,79 @@ const egitimler = [
    
 <Header />
 
-    <main>
-      <section class="page-heading">
-        <div class="container">
-          <span class="eyebrow">BENİ TANIYIN</span>
-          <h1>Hakkımda<span>.</span></h1>
-          <p>Klinik Psikolog Elif Özgür Önal</p>
-        </div>
-      </section>
+    
+<main>
+  <section class="page-heading">
+    <div class="container">
+      <span class="eyebrow">BENİ TANIYIN</span>
 
-      <section class="about">
-        <div class="container about-grid">
-          <div class="portrait">
-            
-<img
-  src="/images/elif-ozgur-onal.jpg"
-  alt="Klinik Psikolog Elif Özgür Önal'ın portresi"
-  loading="lazy"
-  decoding="async"
-/>
+      <h1>
+        {hakkimda.sayfaBasligi}<span>.</span>
+      </h1>
 
-          </div>
+      <p>{hakkimda.sayfaAciklamasi}</p>
+    </div>
+  </section>
 
-          <div class="about-text">
-            <span class="eyebrow">MERHABA</span>
-            <h2>Ben Elif Özgür Önal.</h2>
+  <section class="about">
+    <div class="container about-grid">
 
-            <p>
-              Lisans eğitimimi Uludağ Üniversitesi Psikoloji
-              Bölümünde, yüksek lisans eğitimimi ise
-              Üsküdar Üniversitesi Klinik Psikoloji
-              alanında tamamladım.
-            </p>
+      <div class="portrait">
+        <img
+          src="/images/elif-ozgur-onal.jpg"
+          alt="Klinik Psikolog Elif Özgür Önal'ın portresi"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
 
-            <p>
-              Mesleki çalışmalarımda çocuk, ergen ve
-              yetişkinlerle çalışıyorum.
-            </p>
+      <div class="about-text">
+        <span class="eyebrow">MERHABA</span>
 
-            <p>
-              Bilişsel Davranışçı Terapi, EMDR ve Deneyimsel
-              Oyun Terapisi yaklaşımlarına ilişkin eğitimler
-              aldım.
-            </p>
+        <h2>{hakkimda.tanitimBasligi}</h2>
 
-            <p>
-              
-<p>
-  Sakarya Serdivan'daki görüşme merkezimde yüz yüze ve online
-  psikoterapi görüşmeleri gerçekleştiriyorum.
-</p>
+        <p>{hakkimda.paragraf1}</p>
 
-            </p>
+        <p>{hakkimda.paragraf2}</p>
 
-            <a href="/iletisim" class="button">
-              İletişime Geçin ↗
-            </a>
-          </div>
-        </div>
-      </section>
+        <p>{hakkimda.paragraf3}</p>
 
-      <section class="education">
+        <p>{hakkimda.paragraf4}</p>
 
-<a href="/egitimler-ve-sertifikalar" class="button">
-  Tüm Eğitimler ve Sertifikalar →
-</a>
+        <a href="/iletisim" class="button">
+          İletişime Geçin ↗
+        </a>
+      </div>
 
-        <div class="container">
-          <span class="eyebrow">AKADEMİK GEÇMİŞ</span>
-          <h2>Eğitim Bilgileri<span>.</span></h2>
+    </div>
+  </section>
 
-          <div class="education-grid">
-            {egitimler.map((egitim) => (
-              <article class="education-card">
-                <span>{egitim.baslik}</span>
-                <h3>{egitim.okul}</h3>
-                <p>{egitim.bolum}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+  <section class="education">
+    <div class="container">
+      <span class="eyebrow">AKADEMİK GEÇMİŞ</span>
+
+      <h2>
+        {hakkimda.egitimBasligi}<span>.</span>
+      </h2>
+
+      <div class="education-grid">
+        {egitimler.map((egitim) => (
+          <article class="education-card">
+            <span>{egitim.baslik}</span>
+            <h3>{egitim.okul}</h3>
+            <p>{egitim.bolum}</p>
+          </article>
+        ))}
+      </div>
+
+      <a href="/egitimler-ve-sertifikalar" class="button">
+        Tüm Eğitimler ve Sertifikalar →
+      </a>
+
+    </div>
+  </section>
+</main>
+
 
     <footer>
       <div class="container">
