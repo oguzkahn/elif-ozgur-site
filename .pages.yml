@@ -349,3 +349,34 @@ content:
           - name: description
             label: Google Açıklaması
             type: text
+
+
+  - name: site_gorselleri
+    label: Site Görselleri
+    type: file
+    path: src/data/gorseller.json
+    format: json
+
+    operations:
+      delete: false
+
+    fields:
+      - name: anaSayfaFotografi
+        label: Ana Sayfa Fotoğrafı
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: anaSayfaAlt
+        label: Ana Sayfa Fotoğraf Açıklaması
+        type: string
+
+      - name: hakkimdaFotografi
+        label: Hakkımda Fotoğrafı
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+
+      - name: hakkimdaAlt
+        label: Hakkımda Fotoğraf Açıklaması
+        type: string
