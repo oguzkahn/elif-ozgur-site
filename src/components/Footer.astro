@@ -13,22 +13,40 @@ import bilgiler from "../data/site-bilgileri.json";
       </div>
 
       <nav class="footer-links" aria-label="Sosyal medya ve profiller">
-        <a
-          href={bilgiler.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram ↗
-        </a>
+  <a
+    href={bilgiler.instagram}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="footer-social-link"
+  >
+    <span class="footer-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+        <circle cx="12" cy="12" r="4"></circle>
+        <circle cx="17.3" cy="6.7" r="1"></circle>
+      </svg>
+    </span>
+    <span>Instagram</span>
+    <span aria-hidden="true">↗</span>
+  </a>
 
-        <a
-          href={bilgiler.doktorsitesi}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          DoktorSitesi ↗
-        </a>
-      </nav>
+  <a
+    href={bilgiler.doktorsitesi}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="footer-social-link"
+  >
+    <span class="footer-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="8" r="3.2"></circle>
+        <path d="M5.5 19c1.8-3.2 4-4.8 6.5-4.8S16.7 15.8 18.5 19"></path>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
+      </svg>
+    </span>
+    <span>DoktorSitesi</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</nav>
     </div>
 
     <div class="footer-bottom">
@@ -131,4 +149,25 @@ import bilgiler from "../data/site-bilgileri.json";
       flex-direction: column;
     }
   }
+
+  .footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.footer-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
 </style>
