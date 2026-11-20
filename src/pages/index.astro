@@ -17,6 +17,31 @@ import gorseller from "../data/gorseller.json";
 
 import Footer from "../components/Footer.astro";
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.elifozgur.com/#isletme",
+  "name": "Klinik Psikolog Elif Özgür Önal",
+  "url": "https://www.elifozgur.com/",
+  "description": "Sakarya Serdivan'da çocuk, ergen ve yetişkinlerle yüz yüze ve online psikoterapi görüşmeleri.",
+  "image": "https://www.elifozgur.com/uploads/elif-ozgur-onal.jpg",
+  "telephone": "+905548765453",
+  "email": "psk.elifozgur@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arabacıalanı, Eski Kazım Paşa Cd. No:45 D:102",
+    "addressLocality": "Serdivan",
+    "addressRegion": "Sakarya",
+    "postalCode": "54050",
+    "addressCountry": "TR"
+  },
+  "sameAs": [
+    "https://www.instagram.com/psikolog.elifozgur/",
+    "https://www.doktorsitesi.com/klinik-psikolog-elif-ozgur-onal/psikoloji-klinik-psikolog/sakarya"
+  ]
+};
+
+
 
 
 
@@ -56,7 +81,14 @@ const hizmetler = Object.values(hizmetDosyalari)
 <SEOHead
   title={seo.anasayfa.title}
   description={seo.anasayfa.description}
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(localBusinessSchema)}
 />
+
+/>
+
 
 </head>
 
