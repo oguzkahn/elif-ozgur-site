@@ -72,25 +72,23 @@ const hizmetler = Object.values(hizmetDosyalari)
 <!doctype html>
 <html lang="tr">
   
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f8f6f1" />
 
-  
-<SEOHead
-  title={seo.anasayfa.title}
-  description={seo.anasayfa.description}
+  <SEOHead
+    title={seo.anasayfa.title}
+    description={seo.anasayfa.description}
+  />
 
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify(localBusinessSchema)}
-/>
-
-/>
-
-
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(localBusinessSchema)}
+  />
 </head>
+
 
 
   <body>
