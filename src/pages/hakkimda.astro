@@ -27,23 +27,6 @@ const egitimler = [
 ];
 
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://www.elifozgur.com/#elif-ozgur-onal",
-  "name": "Elif Özgür Önal",
-  "givenName": "Elif",
-  "familyName": "Özgür Önal",
-  "jobTitle": "Klinik Psikolog",
-  "url": "https://www.elifozgur.com/hakkimda/",
-  "image": "https://www.elifozgur.com/uploads/elif-ozgur-onal.jpg",
-  "description": "Sakarya Serdivan'da çocuk, ergen ve yetişkinlerle çalışan Klinik Psikolog Elif Özgür Önal.",
-  "sameAs": [
-    "https://www.instagram.com/psikolog.elifozgur/",
-    "https://www.doktorsitesi.com/klinik-psikolog-elif-ozgur-onal/psikoloji-klinik-psikolog/sakarya"
-  ]
-};
-
 ---
 
 <!doctype html>
@@ -53,15 +36,13 @@ const personSchema = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <meta name="theme-color" content="#f8f6f1" />
+
   <SEOHead
     title={seo.hakkimda.title}
     description={seo.hakkimda.description}
-  />
-
-  <!-- Klinik Psikolog Elif Özgür Önal - Person Schema -->
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(personSchema)}
+    sayfaTuru="ProfilePage"
+    yol={[{ ad: "Ana Sayfa", yol: "/" }, { ad: "Hakkımda", yol: "/hakkimda/" }]}
   />
 </head>
 
@@ -92,6 +73,8 @@ const personSchema = {
 <img
   src={gorseller.hakkimdaFotografi}
   alt={gorseller.hakkimdaAlt}
+  width="1200"
+  height="1200"
   loading="lazy"
   decoding="async"
 />
@@ -111,7 +94,7 @@ const personSchema = {
 
         <p>{hakkimda.paragraf4}</p>
 
-        <a href="/iletisim" class="button">
+        <a href="/iletisim/" class="button">
           İletişime Geçin ↗
         </a>
       </div>
@@ -137,7 +120,7 @@ const personSchema = {
         ))}
       </div>
 
-      <a href="/egitimler-ve-sertifikalar" class="button">
+      <a href="/egitimler-ve-sertifikalar/" class="button">
         Tüm Eğitimler ve Sertifikalar →
       </a>
 

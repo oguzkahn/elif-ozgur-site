@@ -43,6 +43,7 @@ const alanlar = Object.values(alanDosyalari)
   <SEOHead
     title={seo.calismaAlanlari.title}
     description={seo.calismaAlanlari.description}
+    yol={[{ ad: "Ana Sayfa", yol: "/" }, { ad: "Çalışma Alanları", yol: "/calisma-alanlari/" }]}
   />
 </head>
 
@@ -91,7 +92,7 @@ const alanlar = Object.values(alanDosyalari)
               bilgi almak için iletişime geçebilirsiniz.
             </p>
           </div>
-          <a href="/iletisim" class="button">
+          <a href="/iletisim/" class="button">
             İletişime Geçin ↗
           </a>
         </div>

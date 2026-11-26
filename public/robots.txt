@@ -1,4 +1,4 @@
-
+# Arama motorları ve yapay zekâ arama botları dahil tüm botlara izin verilir.
 User-agent: *
 Allow: /
 

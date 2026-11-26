@@ -3,16 +3,17 @@
 
 const menu = [
   { ad: "Ana Sayfa", adres: "/" },
-  { ad: "Hakkımda", adres: "/hakkimda" },
-  { ad: "Eğitimler ve Sertifikalar", adres: "/egitimler-ve-sertifikalar" },
-  { ad: "Çalışma Alanları", adres: "/calisma-alanlari" },
-  { ad: "İletişim", adres: "/iletisim" }
+  { ad: "Hakkımda", adres: "/hakkimda/" },
+  { ad: "Eğitimler ve Sertifikalar", adres: "/egitimler-ve-sertifikalar/" },
+  { ad: "Çalışma Alanları", adres: "/calisma-alanlari/" },
+  { ad: "İletişim", adres: "/iletisim/" }
 ];
 
 
 
-const aktifSayfa =
-  Astro.url.pathname.replace(/\/$/, "") || "/";
+const aktifSayfa = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
 ---
 
 <header class="site-header">

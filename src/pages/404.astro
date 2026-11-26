@@ -1,0 +1,76 @@
+---
+import SEOHead from "../components/SEOHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f1" />
+    <SEOHead
+      title="Sayfa bulunamadı | Klinik Psikolog Elif Özgür Önal"
+      description="Aradığınız sayfa bulunamadı."
+      noindex
+    />
+  </head>
+  <body>
+    <Header />
+    <main class="bulunamadi">
+      <span class="eyebrow">404</span>
+      <h1>Aradığınız sayfa bulunamadı.</h1>
+      <p>Sayfa taşınmış ya da kaldırılmış olabilir.</p>
+      <a href="/" class="button">Ana Sayfaya Dön →</a>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  :global(body) {
+    margin: 0;
+    background: #f8f6f1;
+    color: #293b34;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .bulunamadi {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 110px 28px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #72917e;
+  }
+
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.2;
+    margin: 20px 0;
+  }
+
+  p {
+    color: #69796e;
+    line-height: 1.9;
+    margin: 0 0 32px;
+  }
+
+  .button {
+    display: inline-block;
+    background: #355b4b;
+    color: #fff;
+    padding: 17px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+  }
+</style>
