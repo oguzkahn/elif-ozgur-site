@@ -341,3 +341,31 @@ content:
       - name: editorEposta
         label: Site Editörü İletişim E-postası
         type: string
+
+  - name: sss
+    label: Sık Sorulan Sorular
+    type: file
+    path: src/data/sss.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: baslik
+        label: Bölüm Başlığı
+        type: string
+      - name: sorular
+        label: Sorular
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{soru}"
+        fields:
+          - name: soru
+            label: Soru
+            type: string
+            required: true
+          - name: cevap
+            label: Cevap
+            type: text
+            required: true

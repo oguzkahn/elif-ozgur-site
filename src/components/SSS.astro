@@ -1,0 +1,125 @@
+---
+// Sık sorulan sorular bölümü. İçerik src/data/sss.json dosyasından gelir
+// (Pages CMS > "Sık Sorulan Sorular"). Aynı veri SSS şemasında da kullanılır.
+import sss from "../data/sss.json";
+---
+
+<section class="sss-bolumu" aria-labelledby="sss-baslik">
+  <div class="sss-container">
+    <span class="ust-etiket">MERAK EDİLENLER</span>
+    <h2 id="sss-baslik">{sss.baslik}</h2>
+
+    <div class="sss-liste">
+      {sss.sorular.map((s) => (
+        <details class="sss-oge">
+          <summary>
+            <h3>{s.soru}</h3>
+            <span class="isaret" aria-hidden="true">+</span>
+          </summary>
+          <p>{s.cevap}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sss-bolumu {
+    padding: 95px 0;
+    color: #293b34;
+  }
+
+  .sss-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 28px;
+  }
+
+  .ust-etiket {
+    color: #71927d;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+  }
+
+  h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(35px, 4.5vw, 55px);
+    line-height: 1.2;
+    margin: 19px 0 36px;
+  }
+
+  .sss-oge {
+    border-top: 1px solid #dce4d9;
+  }
+
+  .sss-oge:last-child {
+    border-bottom: 1px solid #dce4d9;
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:focus-visible {
+    outline: 2px solid #355b4b;
+    outline-offset: 4px;
+  }
+
+  h3 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .isaret {
+    flex-shrink: 0;
+    color: #648a77;
+    font-size: 24px;
+    transition: transform 0.2s;
+  }
+
+  details[open] .isaret {
+    transform: rotate(45deg);
+  }
+
+  .sss-oge p {
+    margin: 0 0 24px;
+    color: #69796e;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  @media (max-width: 650px) {
+    .sss-bolumu {
+      padding: 65px 0;
+    }
+
+    .sss-container {
+      padding: 0 20px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .isaret {
+      transition: none;
+    }
+  }
+</style>

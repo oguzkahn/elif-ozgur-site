@@ -1,38 +1,92 @@
-
 ---
+// Her sayfanın <head> bölümündeki SEO etiketleri ve yapılandırılmış veri.
+import gorseller from "../data/gorseller.json";
+import {
+  SITE,
+  SITE_ADI,
+  WEBSITE_ID,
+  KISI_ID,
+  kisi,
+  isletme,
+  website,
+  breadcrumb,
+  tamUrl,
+} from "../data/schema.js";
+
 interface Props {
   title: string;
   description: string;
+  /** Sayfa yolu; ör. [{ ad: "Ana Sayfa", yol: "/" }, { ad: "Hakkımda", yol: "/hakkimda/" }] */
+  yol?: { ad: string; yol: string }[];
+  /** Sayfaya özel ek şema nesneleri (ör. SSS). */
+  ekSema?: object[];
+  /** Sayfa türü (schema.org): WebPage, AboutPage, ContactPage... */
+  sayfaTuru?: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  yol = [],
+  ekSema = [],
+  sayfaTuru = "WebPage",
+  noindex = false,
+} = Astro.props;
 
-const canonicalUrl = new URL(
-  Astro.url.pathname,
-  "https://www.elifozgur.com"
-).href;
+const canonicalUrl = new URL(Astro.url.pathname, SITE).href;
+const gorsel = tamUrl(gorseller.anaSayfaFotografi);
+
+const sayfa = {
+  "@type": sayfaTuru,
+  "@id": `${canonicalUrl}#sayfa`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: "tr-TR",
+  isPartOf: { "@id": WEBSITE_ID },
+  about: { "@id": KISI_ID },
+  ...(sayfaTuru === "ProfilePage" && { mainEntity: { "@id": KISI_ID } }),
+  primaryImageOfPage: gorsel,
+  ...(yol.length > 1 && { breadcrumb: breadcrumb(yol) }),
+};
+
+const graf = {
+  "@context": "https://schema.org",
+  "@graph": [website, kisi, isletme, sayfa, ...ekSema],
+};
 ---
 
 <title>{title}</title>
-
+<meta name="description" content={description} />
 <meta
-  name="description"
-  content={description}
+  name="robots"
+  content={noindex
+    ? "noindex, follow"
+    : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
 />
-
-<link rel="canonical" href={canonicalUrl} />
+{!noindex && <link rel="canonical" href={canonicalUrl} />}
+<meta name="author" content="Elif Özgür Önal" />
+<meta name="geo.region" content="TR-54" />
+<meta name="geo.placename" content="Serdivan, Sakarya" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="tr_TR" />
-
+<meta property="og:site_name" content={SITE_ADI} />
 <meta property="og:title" content={title} />
-
-<meta
-  property="og:description"
-  content={description}
-/>
-
+<meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={gorsel} />
+<meta property="og:image:alt" content={gorseller.anaSayfaAlt.trim()} />
 
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={gorsel} />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+<link rel="alternate" type="text/plain" title="LLM özeti" href="/llms.txt" />
+
+<script type="application/ld+json" set:html={JSON.stringify(graf)} />

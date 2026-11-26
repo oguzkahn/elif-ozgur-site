@@ -1,0 +1,33 @@
+{
+  "baslik": "Sık Sorulan Sorular",
+  "sorular": [
+    {
+      "soru": "Klinik Psikolog Elif Özgür Önal nerede görüşme yapıyor?",
+      "cevap": "Görüşmeler Sakarya Serdivan'daki ofiste yüz yüze yapılır. Adres: Arabacıalanı, Eski Kazım Paşa Cd. No:45 D:102, 54050 Serdivan/Sakarya. Uygunluk değerlendirmesi sonrasında online görüşme seçeneği de bulunmaktadır."
+    },
+    {
+      "soru": "Hangi yaş gruplarıyla çalışıyorsunuz?",
+      "cevap": "Çocuk, ergen ve yetişkinlerle çalışıyorum. Çocuk ve ergenlerle yürütülen süreçlerde ebeveyn danışmanlığı görüşmeleri de yapılabilmektedir."
+    },
+    {
+      "soru": "Hangi terapi yaklaşımlarını kullanıyorsunuz?",
+      "cevap": "Bilişsel Davranışçı Terapi (BDT), EMDR ve Deneyimsel Oyun Terapisi yaklaşımlarında eğitimler aldım. Süreç, danışanın ihtiyaçları ve yaşam öyküsü dikkate alınarak planlanır."
+    },
+    {
+      "soru": "Online terapi yapıyor musunuz?",
+      "cevap": "Evet. Uygunluk değerlendirmesi sonrasında psikoterapi görüşmeleri dijital görüşme ortamında uzaktan yürütülebilir. Böylece Sakarya dışından da görüşme planlanabilir."
+    },
+    {
+      "soru": "Çalışma alanlarınız nelerdir?",
+      "cevap": "Bireysel terapi, ebeveyn danışmanlığı ve psikolojik değerlendirme. Psikolojik değerlendirmede ihtiyaca ve uygulama yetkinliğine göre psikolojik, gelişimsel ve bilişsel değerlendirme araçları kullanılır."
+    },
+    {
+      "soru": "Eğitim geçmişiniz nedir?",
+      "cevap": "Lisans eğitimimi Uludağ Üniversitesi Psikoloji Bölümünde, yüksek lisans eğitimimi Üsküdar Üniversitesi Klinik Psikoloji alanında tamamladım."
+    },
+    {
+      "soru": "Nasıl randevu alabilirim?",
+      "cevap": "Randevu ve görüşme süreci hakkında bilgi almak için 0554 876 54 53 numaralı telefondan, WhatsApp üzerinden veya psk.elifozgur@gmail.com adresine e-posta göndererek iletişime geçebilirsiniz. Lütfen mesajlarınızda hassas sağlık bilgilerinizi paylaşmayınız."
+    }
+  ]
+}

@@ -17,33 +17,11 @@ import gorseller from "../data/gorseller.json";
 
 import Footer from "../components/Footer.astro";
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.elifozgur.com/#isletme",
-  "name": "Klinik Psikolog Elif Özgür Önal",
-  "url": "https://www.elifozgur.com/",
-  "description": "Sakarya Serdivan'da çocuk, ergen ve yetişkinlerle yüz yüze ve online psikoterapi görüşmeleri.",
-  "image": "https://www.elifozgur.com/uploads/elif-ozgur-onal.jpg",
-  "telephone": "+905548765453",
-  "email": "psk.elifozgur@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Arabacıalanı, Eski Kazım Paşa Cd. No:45 D:102",
-    "addressLocality": "Serdivan",
-    "addressRegion": "Sakarya",
-    "postalCode": "54050",
-    "addressCountry": "TR"
-  },
-  "sameAs": [
-    "https://www.instagram.com/psikolog.elifozgur/",
-    "https://www.doktorsitesi.com/klinik-psikolog-elif-ozgur-onal/psikoloji-klinik-psikolog/sakarya"
-  ]
-};
+import SSS from "../components/SSS.astro";
 
+import sss from "../data/sss.json";
 
-
-
+import { sssSemasi } from "../data/schema.js";
 
 const hizmetDosyalari = import.meta.glob(
   "../data/calisma-alanlari/*.json",
@@ -81,11 +59,7 @@ const hizmetler = Object.values(hizmetDosyalari)
   <SEOHead
     title={seo.anasayfa.title}
     description={seo.anasayfa.description}
-  />
-
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(localBusinessSchema)}
+    ekSema={[sssSemasi(sss.sorular)]}
   />
 </head>
 
@@ -112,10 +86,10 @@ const hizmetler = Object.values(hizmetDosyalari)
 
 
             <div class="hero-actions">
-              <a href="/iletisim" class="button button-primary">
+              <a href="/iletisim/" class="button button-primary">
                 İletişime Geçin <span aria-hidden="true">↗</span>
               </a>
-              <a href="/hakkimda" class="button button-text">
+              <a href="/hakkimda/" class="button button-text">
                 Hakkımda <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -133,7 +107,10 @@ const hizmetler = Object.values(hizmetDosyalari)
 <img
   src={gorseller.anaSayfaFotografi}
   alt={gorseller.anaSayfaAlt}
+  width="1200"
+  height="1200"
   loading="eager"
+  fetchpriority="high"
   decoding="async"
   style="display:block; width:100%; height:clamp(360px, 65vh, 560px); object-fit:cover; object-position:center 30%;"
 />
@@ -223,7 +200,8 @@ const hizmetler = Object.values(hizmetDosyalari)
           </div>
         </div>
       </section>
-      
+
+      <SSS />
 
 <section id="iletisim" class="section contact">
   <div class="container">

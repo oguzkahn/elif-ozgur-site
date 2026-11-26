@@ -21,19 +21,6 @@ const harita = iletisim.haritaLinki;
 
 
 
-const yerelIsletme = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://www.elifozgur.com/#isletme",
-  "name": "Klinik Psikolog Elif Özgür Önal",
-  "url": "https://www.elifozgur.com/",
-  "image": "https://www.elifozgur.com/images/elif-ozgur-onal.jpg",
-  "telephone": iletisim.telefon,
-  "email": iletisim.email,
-  "address": iletisim.adres,
-  "hasMap": iletisim.haritaLinki
-};
-
 ---
 
 <!doctype html>
@@ -45,10 +32,8 @@ const yerelIsletme = {
     <SEOHead
       title={seo.iletisim.title}
       description={seo.iletisim.description}
-    />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(yerelIsletme)}
+      sayfaTuru="ContactPage"
+      yol={[{ ad: "Ana Sayfa", yol: "/" }, { ad: "İletişim", yol: "/iletisim/" }]}
     />
   </head>
 
@@ -160,6 +145,8 @@ const yerelIsletme = {
         <img
           src={gorseller.ofisFotografi}
           alt={gorseller.ofisAlt}
+          width="900"
+          height="1200"
           loading="lazy"
           decoding="async"
         />
